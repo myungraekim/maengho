@@ -11,7 +11,6 @@
     "homepage": "https://www.ibuk5do.go.kr/main.do"
   },
   "coverItems": [
-    "아주경제 탐사기획 — 정경조 지사 인터뷰 (5. 27)",
     "유지숙의 서도소리 공연 (5. 2)",
     "한많은 대동강 공연 촬영팀 미팅 (5. 2)",
     "제55회 평남도민의 날 대회 (5. 9)",
@@ -23,24 +22,10 @@
     "향두계놀이보존회 정기공연 (5. 23)",
     "이북5도 개청77주년 기념 (5. 23)",
     "평양내고향 여자 축구단 『북한여자축구 방한 경기관람』 (5. 23)",
-    "민주평화통일자문회의 2분기 정기회의 및 역량강화 (5. 23)"
+    "민주평화통일자문회의 2분기 정기회의 및 역량강화 (5. 23)",
+    "아주경제 탐사기획 — 정경조 지사 인터뷰 (5. 27)"
   ],
   "activities": [
-    {
-      "id": 0,
-      "title": "아주경제 탐사기획 — 정경조 지사 인터뷰",
-      "date": "5. 27",
-      "subtitle": "세금 낭비? 실향민 역사 기록합니다",
-      "body": "아주경제 탐사보도팀이 5월 22일 이북5도청을 방문해 정경조 평안남도지사와 명계남 황해도지사를 인터뷰했다. 정 지사는 880만 실향민과 북한이탈주민을 잇는 행정기관으로서의 역할을 강조하며, 76년 만에 처음으로 평안남도 16개 시군 역사 조사연구서를 발간한 성과를 소개했다. 정 지사는 치열하게 남기는 이 기록들이 다가올 평화와 통일의 시대를 여는 씨앗이 되길 바란다고 밝혔다.",
-      "image": "photos/2026-06/아주경제티비.jpeg",
-      "imagePosition": "right",
-      "links": [
-        {
-          "title": "아주경제 탐사기획 기사 보기",
-          "url": "https://www.ajunews.com/view/20260526140023553"
-        }
-      ]
-    },
     {
       "id": 1,
       "title": "유지숙의 서도소리 공연",
@@ -50,7 +35,10 @@
       "image": "photos/2026-06/01_seodosori.jpeg",
       "imagePosition": "right",
       "links": [
-        {"title": "관련 기사 보기", "url": "https://www.koya-culture.com/news/article.html?no=152076"}
+        {
+          "title": "관련 기사 보기",
+          "url": "https://www.koya-culture.com/news/article.html?no=152076"
+        }
       ]
     },
     {
@@ -71,7 +59,10 @@
       "image": "photos/2026-06/05_citizens_day.jpeg",
       "imagePosition": "right",
       "links": [
-        {"title": "관련 기사 보기", "url": "http://www.sctoday.co.kr/news/articleView.html?idxno=47878"}
+        {
+          "title": "관련 기사 보기",
+          "url": "http://www.sctoday.co.kr/news/articleView.html?idxno=47878"
+        }
       ]
     },
     {
@@ -119,7 +110,10 @@
       "image": "photos/2026-06/04_press.jpeg",
       "imagePosition": "right",
       "links": [
-        {"title": "관련 기사 보기", "url": "https://www.kukak21.com/bbs/board.php?bo_table=news&wr_id=42907"}
+        {
+          "title": "관련 기사 보기",
+          "url": "https://www.kukak21.com/bbs/board.php?bo_table=news&wr_id=42907"
+        }
       ]
     },
     {
@@ -149,7 +143,10 @@
       "image": "photos/2026-06/여자축구.png",
       "imagePosition": "left",
       "links": [
-        {"title": "NYT 관련 기사 보기", "url": "https://www.nytimes.com/2026/05/20/world/asia/north-korea-soccer-south-naegohyang.html?unlocked_article_code=1.j1A.WsFn.WWml9Aj6_Vpa&smid=url-share"}
+        {
+          "title": "NYT 관련 기사 보기",
+          "url": "https://www.nytimes.com/2026/05/20/world/asia/north-korea-soccer-south-naegohyang.html?unlocked_article_code=1.j1A.WsFn.WWml9Aj6_Vpa&smid=url-share"
+        }
       ]
     },
     {
@@ -160,6 +157,21 @@
       "body": "민주평화통일자문회의 2분기 정기회의 및 역량강화 행사가 2026년 5월 23일 오후 7시 30분 이북5도청 5층 평화강당에서 민주평통 주관으로 개최됐다. 이번 행사는 이북5도 전체를 대상으로 하는 회의로, 이북5도 각지의 자문위원들이 한자리에 모여 한반도 평화통일을 위한 과제와 실천 방안을 심도 있게 논의하는 자리로 마련됐다. 정경조 평안남도지사는 귀빈으로 참석하여 자리를 빛냈으며, 이북5도 도민 모두의 통일 의지를 결집하고 평화통일의 실질적 기반을 함께 다져나가자는 격려의 뜻을 전했다.",
       "image": "photos/2026-06/06_minpyeongtong.jpeg",
       "imagePosition": "right"
+    },
+    {
+      "id": 13,
+      "title": "아주경제 탐사기획 — 정경조 지사 인터뷰",
+      "date": "5. 27",
+      "subtitle": "세금 낭비? 실향민 역사 기록합니다",
+      "body": "아주경제 탐사보도팀이 5월 22일 이북5도청을 방문해 정경조 평안남도지사와 명계남 황해도지사를 인터뷰했다. 정 지사는 880만 실향민과 북한이탈주민을 잇는 행정기관으로서의 역할을 강조하며, 76년 만에 처음으로 평안남도 16개 시군 역사 조사연구서를 발간한 성과를 소개했다. 정 지사는 치열하게 남기는 이 기록들이 다가올 평화와 통일의 시대를 여는 씨앗이 되길 바란다고 밝혔다.",
+      "image": "photos/2026-06/아주경제티비.jpeg",
+      "imagePosition": "right",
+      "links": [
+        {
+          "title": "아주경제 탐사기획 기사 보기",
+          "url": "https://www.ajunews.com/view/20260526140023553"
+        }
+      ]
     }
   ],
   "upcomingItems": [

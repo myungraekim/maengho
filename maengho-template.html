@@ -663,6 +663,9 @@
   /* 화면 미리보기 */
   @media screen {
     body { padding: 20px; }
+    .page { overflow: hidden; }
+    .article { overflow: hidden; }
+    .articles-inner { overflow: hidden; }
     .print-btn {
       position: fixed;
       bottom: 20px;
@@ -699,9 +702,13 @@
     .activity-image img { height: 220px; }
 
     /* 글자 크기 */
+    html { -webkit-text-size-adjust: 100%; }
     .activity-title-row h2       { font-size: 18px; }
     .activity-body p              { font-size: 13px; }
     .cover-headline-box .report-title { font-size: 26px; }
+    .art-title   { font-size: 17px !important; }
+    .art-body    { font-size: 13px !important; }
+    .art-subtitle { font-size: 12px !important; }
 
     /* 여백 */
     .content-inner  { padding: 0 14px; overflow: visible; }
