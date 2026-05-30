@@ -939,7 +939,7 @@ async function buildMagazine() {
   mag.innerHTML += buildCover(data);
 
   // 본문: 2개씩 묶어서 페이지 생성
-  const pageSize = 1;
+  const pageSize = 2;
   let pageNum = 1;
   for (let i = 0; i < acts.length; i += pageSize) {
     const slice = acts.slice(i, i + pageSize);
