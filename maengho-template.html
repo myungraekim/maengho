@@ -262,7 +262,8 @@
     padding: 0 0 36px 0;
     display: flex;
     flex-direction: column;
-    height: 297mm;
+    height: auto;
+    min-height: auto;
   }
   .content-inner {
     padding: 0 22px;
@@ -662,7 +663,8 @@
   /* 화면 미리보기 */
   @media screen {
     body { padding: 20px; }
-    .page { overflow: hidden; }
+    .page { overflow: hidden; min-height: auto; }
+    .content-page { height: auto; min-height: auto; }
     .article { overflow: hidden; }
     .articles-inner { overflow: hidden; }
     .print-btn {
