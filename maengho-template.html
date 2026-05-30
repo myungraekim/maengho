@@ -607,16 +607,26 @@
   /* ─── 기사 링크 버튼 ─── */
   .art-links { margin-top: 10px; }
   .art-link-btn {
-    display: inline-block;
-    font-size: 11px;
-    color: #1a3557;
-    border: 1px solid #1a3557;
-    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #1a3557, #2d6a9f);
+    border: none;
+    padding: 7px 14px;
     text-decoration: none;
-    border-radius: 3px;
-    margin-right: 6px;
+    border-radius: 20px;
+    margin-right: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(26,53,87,0.3);
+    letter-spacing: 0.5px;
   }
-  .art-link-btn:hover { background: #1a3557; color: white; }
+  .art-link-btn:hover {
+    background: linear-gradient(135deg, #c8a84b, #e8c96d);
+    color: #1a3557;
+  }
 
   /* ══════════════════════════════
      인쇄 설정
@@ -711,12 +721,20 @@
 <body>
 
 <!-- 인쇄 버튼 (화면에서만 보임) -->
-<button class="print-btn" onclick="window.print()">📥 PDF 저장</button>
+<button class="print-btn" onclick="handlePrint()">📥 PDF 저장</button>
 
 <!-- 동적으로 생성됨 -->
 <div id="magazine"></div>
 
 <script>
+function handlePrint() {
+  if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
+    alert('모바일에서는 브라우저 메뉴 → 공유 → PDF로 저장을 이용해 주세요.');
+  } else {
+    window.print();
+  }
+}
+
 // ─── 데이터 파일 경로 ───
 // 실제 사용 시 이 경로만 변경하면 됩니다
 const DATA_FILE = 'data-2026-06.json';
