@@ -638,6 +638,15 @@
       break-after: auto;
       page-break-after: auto;
     }
+    .article {
+      page-break-inside: avoid;
+      break-inside: avoid;
+      padding: 20px 0;
+    }
+    .art-photo {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
     .print-btn { display: none; }
   }
 
@@ -930,7 +939,7 @@ async function buildMagazine() {
   mag.innerHTML += buildCover(data);
 
   // 본문: 2개씩 묶어서 페이지 생성
-  const pageSize = 2;
+  const pageSize = 1;
   let pageNum = 1;
   for (let i = 0; i < acts.length; i += pageSize) {
     const slice = acts.slice(i, i + pageSize);
