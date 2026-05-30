@@ -627,27 +627,16 @@
     #magazine { margin: 0; padding: 0; }
     .page {
       width: 210mm;
-      height: auto !important;
-      min-height: 0 !important;
+      height: 297mm;
       margin: 0;
+      break-after: page;
       page-break-after: always;
-      page-break-inside: avoid;
       box-shadow: none;
-      overflow: visible !important;
+      overflow: hidden;
     }
-    .page:first-child { margin-top: 0; }
-    .page:last-child { page-break-after: auto; }
-    .cover {
-      height: 297mm !important;
-      min-height: 297mm !important;
-    }
-    .back-cover {
-      height: 297mm !important;
-      min-height: 297mm !important;
-    }
-    .content-page {
-      height: auto !important;
-      min-height: 0 !important;
+    .page:last-child {
+      break-after: auto;
+      page-break-after: auto;
     }
     .print-btn { display: none; }
   }
