@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>平南 猛虎出林</title>
+<meta property="og:title" content="平南 猛虎出林 — 2026년 5월 평안남도 도정보고">
+<meta property="og:description" content="평안남도 도정보고 소식지 맹호출림 6월호 | 5월 주요 실시사항을 담았습니다.">
+<meta property="og:image" content="https://super-mochi-7e92da.netlify.app/photos/cover-main.png">
+<meta property="og:url" content="https://super-mochi-7e92da.netlify.app">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="平南 猛虎出林">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+  :root {
+    --navy: #0d2340;
+    --navy-mid: #1a3a5c;
+    --navy-light: #2d5a8e;
+    --gold: #c8a84b;
+    --gold-light: #e8c96d;
+    --gold-pale: #f5e9c0;
+    --cream: #faf7f0;
+    --text-dark: #1a1a1a;
+    --text-mid: #3d3d3d;
+    --text-light: #666;
+    --highlight-yellow: #fff176;
+    --red-accent: #8b1a1a;
+    --border-light: #e0d9cc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #e8e4dc;
+    color: var(--text-dark);
+  }
+
+  /* ─── 공통 페이지 레이아웃 ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm;
+    background: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  /* ─── 공통 헤더 (2면~) ─── */
+  .page-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(13,35,64,0.15);
+    padding: 10px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .page-header .title-kr {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: 6px;
+  }
+  .page-header .title-cn {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    color: var(--navy);
+    letter-spacing: 3px;
+    font-weight: 700;
+  }
+  .page-header .issue-info {
+    text-align: right;
+    color: var(--navy-mid);
+    font-size: 11px;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  /* ─── 섹션 라벨 ─── */
+  .section-label {
+    background: #1a3557;
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 22px;
+    text-transform: uppercase;
+  }
+
+  /* ─── 페이지 하단 ─── */
+  .page-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    padding: 6px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+  }
+  .page-footer .copyright { font-size: 10px; }
+  .page-footer .page-num { font-size: 11px; color: var(--gold-light); font-weight: 700; }
+
+  /* ══════════════════════════════
+     1면: 표지
+  ══════════════════════════════ */
+  .cover {
+    background:
+      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      url('photos/cover-main.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 297mm;
+  }
+  .cover-top {
+    padding: 24px 22px 16px;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cover-logo {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+  .cover-top-titles {}
+  .cover-top-titles .cn-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 8px;
+    line-height: 1;
+  }
+  .cover-top-titles .kr-sub {
+    font-size: 12px;
+    color: var(--gold-light);
+    letter-spacing: 2px;
+    margin-top: 4px;
+  }
+  .cover-top-titles .mag-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .cover-issue-badge {
+    margin-left: auto;
+    text-align: right;
+  }
+  .cover-issue-badge .year-month {
+    font-size: 13px;
+    color: var(--gold-light);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .cover-hero {
+    flex: 1;
+    position: relative;
+    min-height: 180mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .cover-bg-img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
+  }
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px 22px 100px;
+    flex: 1;
+  }
+
+  .cover-headline-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(200,168,75,0.4);
+    border-left: 4px solid var(--gold);
+    padding: 16px 22px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .cover-headline-box .report-label {
+    font-size: 11px;
+    color: var(--gold-light);
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .cover-headline-box .report-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: white;
+    line-height: 1.2;
+  }
+  .cover-headline-box .report-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+    letter-spacing: 1px;
+  }
+
+  .cover-toc-label {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cover-toc-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(200,168,75,0.4);
+  }
+  .cover-toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 16px;
+  }
+  .cover-toc-list li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    padding: 5px 8px;
+    background: rgba(255,255,255,0.05);
+    border-left: 2px solid var(--gold);
+    line-height: 1.4;
+  }
+  .cover-toc-list li .date-tag {
+    color: var(--gold-light);
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  /* ══════════════════════════════
+     본문 페이지: 활동 기사
+  ══════════════════════════════ */
+  .content-page {
+    background-image:
+      linear-gradient(to bottom, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.22) 18%, rgba(255,255,255,0.18) 100%),
+      url('photos/content-bg.png?v=2');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 297mm;
+  }
+  .content-inner {
+    padding: 10px 22px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .activity-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 14px 0;
+    border-bottom: 2px solid var(--border-light);
+    overflow: hidden;
+    min-height: 0;
+  }
+  .activity-block:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .activity-title-row {
+    margin-bottom: 10px;
+    flex-shrink: 0;
+  }
+  .activity-title-row h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.3;
+    padding-bottom: 6px;
+    border-bottom: 3px solid var(--red-accent);
+    display: inline-block;
+  }
+  .activity-title-row h2 .date-inline {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .activity-subtitle {
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--red-accent);
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .activity-with-img {
+    display: grid;
+    gap: 14px;
+    align-items: start;
+    flex: 1;
+    min-height: 0;
+  }
+  .activity-with-img.img-right { grid-template-columns: 1fr 1fr; }
+  .activity-with-img.img-left  { grid-template-columns: 1fr 1fr; }
+  .activity-with-img.img-left .activity-body  { order: 2; }
+  .activity-with-img.img-left .activity-image { order: 1; }
+
+  .activity-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+  .activity-body p {
+    font-size: 12.5px;
+    line-height: 1.85;
+    color: var(--text-mid);
+    text-align: justify;
+    overflow: hidden;
+  }
+  .activity-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--border-light);
+  }
+  .activity-image img[src*="평안남도로고"],
+  .activity-image img[src*="logo.png"] {
+    object-fit: contain;
+    background: var(--cream);
+    padding: 24px;
+    height: 200px;
+  }
+  .activity-image img[src*="서도소리"] {
+    object-fit: contain;
+    background: #1a1a1a;
+    height: 200px;
+  }
+  .activity-image-caption {
+    font-size: 10px;
+    color: var(--text-light);
+    text-align: center;
+    padding: 4px 0;
+    background: var(--cream);
+    border: 1px solid var(--border-light);
+    border-top: none;
+  }
+
+  /* 2단 레이아웃 (소규모 기사 2개 나란히) */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 18px 0;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .two-col .activity-title-row h2 { font-size: 15px; }
+  .two-col .activity-image img { height: 120px; }
+  .two-col .activity-body p { font-size: 11.5px; }
+
+  /* ══════════════════════════════
+     예정사항 페이지
+  ══════════════════════════════ */
+  .upcoming-section {
+    padding: 16px 22px;
+  }
+  .upcoming-section h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  .upcoming-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .upcoming-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--cream);
+    border-left: 3px solid var(--navy);
+    font-size: 13px;
+    color: var(--text-dark);
+  }
+  .upcoming-list li .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .upcoming-list li .udate {
+    font-weight: 700;
+    color: var(--navy);
+    min-width: 40px;
+    font-size: 12px;
+  }
+
+  /* 점 색상 순환 */
+  .dot-0 { background: #4caf50; }
+  .dot-1 { background: #ffc107; }
+  .dot-2 { background: #2196f3; }
+  .dot-3 { background: #9c27b0; }
+  .dot-4 { background: #ff5722; }
+
+  /* 공지 박스 */
+  .notice-box {
+    margin: 16px 22px;
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .notice-box-header {
+    background: var(--navy);
+    color: var(--gold-light);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 16px;
+    letter-spacing: 1px;
+  }
+  .notice-box-body {
+    background: var(--gold-pale);
+    padding: 14px 16px;
+  }
+  .notice-box-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .notice-box-body ul li {
+    font-size: 12.5px;
+    color: var(--text-mid);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .notice-box-body ul li::before {
+    content: '☞';
+    position: absolute;
+    left: 0;
+    color: var(--navy);
+  }
+  .notice-box-body ul li.highlight {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 13px;
+  }
+
+  /* ══════════════════════════════
+     월별 추진일정 페이지
+  ══════════════════════════════ */
+  .schedule-page {
+    padding: 16px 22px 60px;
+  }
+  .schedule-page h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: white;
+    background: var(--navy);
+    padding: 12px 16px;
+    margin-bottom: 0;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .schedule-table th {
+    background: var(--navy-mid);
+    color: var(--gold-light);
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    width: 60px;
+  }
+  .schedule-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-mid);
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  .schedule-table tr:nth-child(even) td { background: var(--cream); }
+  .schedule-table tr.highlight-row td { color: var(--navy); font-weight: 700; }
+  .schedule-table tr.highlight-row th { background: var(--navy-light); }
+
+  /* ══════════════════════════════
+     발간정보 (뒷표지)
+  ══════════════════════════════ */
+  .back-cover {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 297mm;
+    padding: 40px;
+  }
+  .back-cover .logo-large {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 20px;
+  }
+  .back-cover .province-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 6px;
+    margin-bottom: 40px;
+  }
+  .pub-info {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,168,75,0.3);
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 320px;
+  }
+  .pub-info h4 {
+    font-size: 13px;
+    color: var(--gold-light);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
+  }
+  .pub-info dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 7px 12px;
+    font-size: 12px;
+  }
+  .pub-info dt {
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+  }
+  .pub-info dd {
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+  .pub-info dd a {
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  /* ══════════════════════════════
+     16개시군 마무리 페이지
+  ══════════════════════════════ */
+  .cities-page {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 297mm;
+    padding: 0;
+    overflow: hidden;
+  }
+  .cities-page img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ─── 기사 링크 버튼 ─── */
+  .art-links { margin-top: 10px; }
+  .art-link-btn {
+    display: inline-block;
+    font-size: 11px;
+    color: #1a3557;
+    border: 1px solid #1a3557;
+    padding: 4px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 6px;
+  }
+  .art-link-btn:hover { background: #1a3557; color: white; }
+
+  /* ══════════════════════════════
+     인쇄 설정
+  ══════════════════════════════ */
+  @media print {
+    @page { size: A4; margin: 0; }
+    body { background: white; margin: 0; padding: 0 !important; }
+    #magazine { margin: 0; padding: 0; }
+    .page {
+      width: 210mm;
+      height: auto !important;
+      min-height: 0 !important;
+      margin: 0;
+      page-break-after: always;
+      page-break-inside: avoid;
+      box-shadow: none;
+      overflow: visible !important;
+    }
+    .page:first-child { margin-top: 0; }
+    .page:last-child { page-break-after: auto; }
+    .cover {
+      height: 297mm !important;
+      min-height: 297mm !important;
+    }
+    .back-cover {
+      height: 297mm !important;
+      min-height: 297mm !important;
+    }
+    .content-page {
+      height: auto !important;
+      min-height: 0 !important;
+    }
+    .print-btn { display: none; }
+  }
+
+  /* 화면 미리보기 */
+  @media screen {
+    body { padding: 20px; }
+    .print-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--navy);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-family: 'Noto Sans KR', sans-serif;
+      cursor: pointer;
+      border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+    .print-btn:hover { background: var(--navy-light); }
+  }
+
+  /* ══════════════════════════════
+     모바일 반응형
+  ══════════════════════════════ */
+  @media screen and (max-width: 768px) {
+
+    /* 페이지 너비 */
+    .page { width: 100%; min-height: auto; height: auto !important; }
+
+    /* 2단 → 1단 변경 */
+    .activity-with-img.img-right,
+    .activity-with-img.img-left { grid-template-columns: 1fr; }
+    .activity-with-img.img-left .activity-body  { order: 2; }
+    .activity-with-img.img-left .activity-image { order: 1; }
+
+    /* 사진 높이 */
+    .activity-image img { height: 220px; }
+
+    /* 글자 크기 */
+    .activity-title-row h2       { font-size: 18px; }
+    .activity-body p              { font-size: 13px; }
+    .cover-headline-box .report-title { font-size: 26px; }
+
+    /* 여백 */
+    .content-inner  { padding: 0 14px; overflow: visible; }
+    .activity-block { padding: 14px 0; overflow: visible; min-height: auto; flex: none; }
+
+    /* 푸터 겹침 */
+    .page-footer { position: relative; margin-top: 20px; }
+
+    /* 표지 */
+    .cover-content { margin-top: 100px; }
+
+    /* 본문 페이지 고정 높이 해제 */
+    .content-page { height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 인쇄 버튼 (화면에서만 보임) -->
+<button class="print-btn" onclick="window.print()">📥 PDF 저장</button>
+
+<!-- 동적으로 생성됨 -->
+<div id="magazine"></div>
+
+<script>
+// ─── 데이터 파일 경로 ───
+// 실제 사용 시 이 경로만 변경하면 됩니다
+const DATA_FILE = 'data-2026-06.json';
+
+// ─── 도트 색상 ───
+const DOT_COLORS = ['#4caf50','#ffc107','#2196f3','#9c27b0','#ff5722','#00bcd4','#e91e63','#795548'];
+
+// ─── 커버 파싱 (날짜 추출) ───
+function parseCoverItem(item) {
+  const match = item.match(/^(.*?)\s*(\(\d+\.\s*\d+(?:\s*\/\s*\d+\.\s*\d+)?\))$/);
+  if (match) return { text: match[1].trim(), date: match[2] };
+  return { text: item, date: '' };
+}
+
+// ─── 1면: 표지 ───
+function buildCover(d) {
+  const m = d.meta;
+  const items = d.coverItems.map((item, i) => {
+    const p = parseCoverItem(item);
+    return `<li><span class="date-tag">${p.date}</span> ${p.text}</li>`;
+  }).join('');
+
+  return `<div class="page cover">
+    <div class="cover-top">
+      <div class="cover-logo"><img src="photos/logo.png" style="width:100%;height:100%;object-fit:contain;"></div>
+      <div class="cover-top-titles">
+        <div class="mag-label">MAGAZINE</div>
+        <div class="cn-title">平南 猛虎出林</div>
+        <div class="kr-sub">평안남도 도정보고 소식지</div>
+      </div>
+      <div class="cover-issue-badge">
+        <div class="year-month">${m.year}.${m.issueMonth}</div>
+      </div>
+    </div>
+
+    <div class="cover-hero">
+      <div class="cover-content">
+        <div class="cover-headline-box">
+          <div class="report-label">📋 ${m.year}년 ${m.reportMonth}월 도정보고</div>
+          <div class="report-title">${m.year}년 ${m.reportMonth}월<br>평남 도정보고</div>
+          <div class="report-sub">${m.issueLabel}</div>
+        </div>
+
+        <div class="cover-toc-label">주요내용</div>
+        <ul class="cover-toc-list">${items}</ul>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ─── 본문 페이지 빌더 ───
+function buildActivityBlock(act, small) {
+  const imgPos = act.imagePosition === 'left' ? 'img-left' : 'img-right';
+  const imgHtml = `<div class="activity-image">
+    <img src="${act.image}" alt="${act.title}" loading="lazy">
+    <div class="activity-image-caption">${act.title} (${act.date})</div>
+  </div>`;
+  const linksHtml = act.links && act.links.length
+    ? `<div class="art-links">${act.links.map(l => `<a href="${l.url}" target="_blank" class="art-link-btn">🔗 ${l.title}</a>`).join('')}</div>`
+    : '';
+  const bodyHtml = `<div class="activity-body"><p>${act.body}</p>${linksHtml}</div>`;
+
+  return `<div class="activity-block">
+    <div class="activity-title-row">
+      <h2>${act.title}<span class="date-inline">(${act.date})</span></h2>
+      ${act.subtitle ? `<div class="activity-subtitle">${act.subtitle}</div>` : ''}
+    </div>
+    <div class="activity-with-img ${imgPos}">
+      ${act.imagePosition === 'left' ? imgHtml + bodyHtml : bodyHtml + imgHtml}
+    </div>
+  </div>`;
+}
+
+function buildContentPage(activities, pageNum, meta, groupLabel) {
+  const blocks = activities.map(a => buildActivityBlock(a)).join('');
+  return `<div class="page content-page">
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="photos/logo.png" style="width:36px;height:36px;object-fit:contain;">
+        <div>
+          <div class="title-cn">平南 猛虎出林</div>
+          <div class="title-kr" style="font-size:12px; letter-spacing:1px; color:var(--navy-mid); margin-top:2px;">평안남도 도정보고 소식지</div>
+        </div>
+      </div>
+      <div class="issue-info">
+        MAGAZINE<br>${meta.year}.${meta.issueMonth}
+      </div>
+    </div>
+    <div class="section-label">${groupLabel} 주요 실시사항</div>
+    <div class="content-inner">${blocks}</div>
+    <div class="page-footer">
+      <span class="copyright">Copyright. 평안남도 도지사실</span>
+      <span class="page-num">${pageNum}</span>
+    </div>
+  </div>`;
+}
+
+// ─── 예정사항 페이지 ───
+function buildUpcomingPage(d, pageNum) {
+  const m = d.meta;
+  const upcoming = d.upcomingItems.map((item, i) => `
+    <li>
+      <span class="dot dot-${i % 5}"></span>
+      <span class="udate">${item.date}</span>
+      <span>${item.title}</span>
+    </li>`).join('');
+
+  const noticeLines = d.notice.lines.map((line, i) =>
+    `<li${i < 2 ? ' class="highlight"' : ''}>${line}</li>`
+  ).join('');
+
+  return `<div class="page content-page">
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="photos/logo.png" style="width:36px;height:36px;object-fit:contain;">
+        <div class="title-cn">平南 猛虎出林</div>
+      </div>
+      <div class="issue-info">MAGAZINE<br>${m.year}.${m.issueMonth}</div>
+    </div>
+    <div class="section-label">${m.reportMonth + 1}月 주요 예정사항</div>
+    <div class="upcoming-section">
+      <h3>${m.reportMonth + 1}월 주요 예정사항</h3>
+      <ul class="upcoming-list">${upcoming}</ul>
+    </div>
+
+    <div class="notice-box">
+      <div class="notice-box-header">${d.notice.icon} ${d.notice.title}</div>
+      <div class="notice-box-body">
+        <ul>${noticeLines}</ul>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="copyright">Copyright. 평안남도 도지사실</span>
+      <span class="page-num">${pageNum}</span>
+    </div>
+  </div>`;
+}
+
+// ─── 월별 추진일정 페이지 ───
+function buildSchedulePage(d, pageNum) {
+  const m = d.meta;
+  const rows = d.schedule.map((row, i) => {
+    const isCurrentMonth = (i + 1) === m.reportMonth;
+    return `<tr${isCurrentMonth ? ' class="highlight-row"' : ''}>
+      <th>${row.month}</th>
+      <td>${row.items}</td>
+    </tr>`;
+  }).join('');
+
+  return `<div class="page content-page">
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="photos/logo.png" style="width:36px;height:36px;object-fit:contain;">
+        <div class="title-cn">平南 猛虎出林</div>
+      </div>
+      <div class="issue-info">MAGAZINE<br>${m.year}.${m.issueMonth}</div>
+    </div>
+    <div class="schedule-page">
+      <h3>${m.year}년 평안남도 월별 추진일정</h3>
+      <table class="schedule-table">
+        <colgroup><col width="60"><col></colgroup>
+        <thead><tr><th>월</th><th>내 용</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+    <div class="page-footer">
+      <span class="copyright">Copyright. 평안남도 도지사실</span>
+      <span class="page-num">${pageNum}</span>
+    </div>
+  </div>`;
+}
+
+// ─── 발간정보 (뒷표지) ───
+function buildBackCover(d) {
+  const m = d.meta;
+  return `<div class="page back-cover">
+    <div class="logo-large"><img src="photos/logo.png" style="width:100%;height:100%;object-fit:contain;"></div>
+    <div class="province-name">평 안 남 도</div>
+    <div class="pub-info">
+      <h4>📋 발 간 정 보</h4>
+      <dl>
+        <dt>발간인</dt><dd>평안남도 도지사 ${m.governor}</dd>
+        <dt>편집·기획</dt><dd>평안남도 비서실 정책보좌 ${m.editor.replace('평안남도 비서실 정책보좌 ', '')}</dd>
+        <dt>연락처</dt><dd>${m.contact}</dd>
+        <dt>이메일</dt><dd><a href="mailto:${m.email}">${m.email}</a></dd>
+        <dt>홈페이지</dt><dd><a href="${m.homepage}">${m.homepage}</a></dd>
+      </dl>
+    </div>
+  </div>`;
+}
+
+// ─── 16개시군 마무리 페이지 ───
+function buildCitiesPage() {
+  return `<div class="page cities-page">
+    <img src="photos/16cities.png" alt="평안남도 16개시군">
+  </div>`;
+}
+
+// ─── 전체 소식지 조립 ───
+async function buildMagazine() {
+  let data;
+  try {
+    const res = await fetch(DATA_FILE + '?v=' + Date.now());
+    data = await res.json();
+  } catch(e) {
+    // fetch 실패시 (파일 직접 열기) 내장 샘플 사용
+    console.warn('JSON fetch 실패 - 내장 데이터 사용:', e.message);
+    data = INLINE_DATA;
+  }
+
+  const mag = document.getElementById('magazine');
+  const acts = data.activities.slice().sort((a, b) => {
+    const toNum = d => { const [,day] = d.date.split('.'); return parseInt(day); };
+    return toNum(a) - toNum(b);
+  });
+  const m = data.meta;
+
+  // 1면: 표지
+  mag.innerHTML += buildCover(data);
+
+  // 본문: 2개씩 묶어서 페이지 생성
+  const pageSize = 2;
+  let pageNum = 1;
+  for (let i = 0; i < acts.length; i += pageSize) {
+    const slice = acts.slice(i, i + pageSize);
+    const label = `${m.reportMonth}月`;
+    mag.innerHTML += buildContentPage(slice, `${pageNum}-${Math.ceil(acts.length/pageSize)}`, m, label);
+    pageNum++;
+  }
+
+  // 예정사항 페이지
+  mag.innerHTML += buildUpcomingPage(data, `예정`);
+
+  // 월별 추진일정
+  mag.innerHTML += buildSchedulePage(data, `일정`);
+
+  // 뒷표지
+  mag.innerHTML += buildBackCover(data);
+
+  // 16개시군 마무리 페이지
+  mag.innerHTML += buildCitiesPage();
+}
+
+// ─── 내장 폴백 데이터 (JSON 로드 실패시) ───
+const INLINE_DATA = {"meta": {"year": 2026, "reportMonth": 5, "issueMonth": 6, "issueLabel": "맹호출림 6월호", "governor": "정경조", "editor": "평안남도 비서실 정책보좌 김명래", "contact": "010-7128-7551", "email": "kmr980@hanmail.net", "homepage": "https://www.ibuk5do.go.kr/main.do"}, "coverItems": ["아주경제 탐사기획 — 정경조 지사 인터뷰 (5. 27)", "유지숙의 서도소리 공연 (5. 2)", "한많은 대동강 공연 촬영팀 미팅 (5. 2)", "제55회 평남도민의 날 대회 (5. 9)", "평남 통일원로회의 의원 회의 (5. 9)", "위원회 간담회 (5. 16)", "명예시장·군수 월례 회의 (5. 16)", "도 직원회의 (5. 23)", "한많은 대동강 뮤지컬 기자간담회 (5. 23)", "향두계놀이보존회 정기공연 (5. 23)", "이북5도 개청77주년 기념 (5. 23)", "평양내고향 여자 축구단 『북한여자축구 방한 경기관람』 (5. 23)", "민주평화통일자문회의 2분기 정기회의 및 역량강화 (5. 23)"], "activities": [{"id": 0, "title": "아주경제 탐사기획 — 정경조 지사 인터뷰", "date": "5. 27", "subtitle": "세금 낭비? 실향민 역사 기록합니다", "body": "아주경제 탐사보도팀이 5월 22일 이북5도청을 방문해 정경조 평안남도지사와 명계남 황해도지사를 인터뷰했다. 정 지사는 880만 실향민과 북한이탈주민을 잇는 행정기관으로서의 역할을 강조하며, 76년 만에 처음으로 평안남도 16개 시군 역사 조사연구서를 발간한 성과를 소개했다. 정 지사는 치열하게 남기는 이 기록들이 다가올 평화와 통일의 시대를 여는 씨앗이 되길 바란다고 밝혔다.", "image": "photos/2026-06/아주경제티비.jpeg", "imagePosition": "right", "links": [{"title": "아주경제 탐사기획 기사 보기", "url": "https://www.ajunews.com/view/20260526140023553"}]}, {"id": 1, "title": "유지숙의 서도소리 공연", "date": "5. 2", "subtitle": "서도소리로 잇는 전통의 맥", "body": "정경조 평안남도지사는 2026년 5월 2일 오후 7시 국가무형유산 전수교육관에서 열리는 '유지숙의 서도소리 공연'에 참석했다. 이번 공연은 평안도를 대표하는 전통 성악 예술인 서도소리의 원형을 계승하고 그 아름다움을 도민과 함께 나누기 위해 마련되었다. 서도소리는 평안도 특유의 정서와 삶의 결이 깃든 소리로, 오랜 세월 도민의 마음속에 뿌리내려 온 소중한 문화유산이다. 정경조 지사는 이러한 전통 예술의 보전과 계승이 평안남도의 정체성을 지키는 근간이자 통일 시대를 준비하는 문화적 기반이 되며, 앞으로도 도 차원에서 전통문화 전승 활동을 적극 지원해 나가겠다는 뜻을 밝혔다.", "image": "photos/2026-06/01_seodosori.jpeg", "imagePosition": "right", "links": [{"title": "관련 기사 보기", "url": "https://www.koya-culture.com/news/article.html?no=152076"}]}, {"id": 2, "title": "한많은 대동강 공연 촬영팀 미팅", "date": "5. 2", "subtitle": "대동강 공연, 영상으로 잇다", "body": "정경조 평안남도지사는 2026년 5월 2일 오후 7시 양재동에서 '한많은 대동강' 공연 촬영팀과의 미팅을 가졌다. 이번 자리는 평안남도민의 고향에 대한 그리움과 한(恨)을 예술로 승화한 대동강 공연을 영상으로 기록·보존하기 위한 촬영 방향과 제작 일정을 논의하는 자리로 마련되었다. 정 지사는 대동강이 단순한 강이 아닌 평안남도민의 정체성과 공동체 정신이 깃든 상징임을 강조하며, 이번 공연 촬영이 실향민의 애환을 후대에 전하고 통일 기반을 다지는 소중한 문화적 기록이 될 것이라는 뜻을 밝혔다.", "image": "photos/2026-06/02_daedonggang.jpeg", "imagePosition": "left"}, {"id": 3, "title": "제55회 평남도민의 날 대회", "date": "5. 9", "subtitle": "도민회 주최 화합의 한마당", "body": "제55회 평남도민의 날 대회가 2026년 5월 9일 우신 중·고교 운동장에서 평안남도중앙도민회 주최로 개최됐다. 이날 행사는 평안남도 출신 도민들이 한자리에 모여 고향을 그리며 화합과 단결을 다지는 자리로 마련됐다. 정경조 평안남도지사는 귀빈으로 참석해 도민 모두가 하나 된 공동체 정신으로 평안남도의 전통과 자긍심을 이어가고 통일 기반 조성에 함께 나아가자는 뜻을 밝혔다.", "image": "photos/2026-06/05_citizens_day.jpeg", "imagePosition": "right", "links": [{"title": "관련 기사 보기", "url": "http://www.sctoday.co.kr/news/articleView.html?idxno=47878"}]}, {"id": 4, "title": "평남 통일원로회의 의원 회의", "date": "5. 9", "subtitle": "통일 원로들과 미래 논하다", "body": "정경조 평안남도지사는 2026년 5월 9일 오전 11시 평안남도청 소회의실에서 평남 통일원로회의 의원 회의를 주재했다. 이날 회의에는 평안남도를 이끌어오신 원로 의원들이 한자리에 모여 도정의 주요 현안과 사업 방향에 대해 심도 있게 논의했다. 오랜 세월 평안남도를 위해 헌신해 온 원로 의원들의 경험과 혜안은 도정 운영에 든든한 뒷받침이 되고 있다. 정경조 지사는 원로 의원들의 소중한 의견을 도정에 적극 반영하고, 평안남도가 더욱 발전해 나갈 수 있도록 최선을 다하겠다는 다짐을 밝혔다.", "image": "photos/2026-06/09_unification.jpeg", "imagePosition": "left"}, {"id": 5, "title": "위원회 간담회", "date": "5. 16", "subtitle": "도정 현안 머리 맞댄 간담회", "body": "이북5도위원회 간담회가 2026년 5월 16일 오전 10시 소회의실에서 개최됐다. 이번 간담회에서는 오는 6월로 예정된 국외이북도민 고국방문단 초청행사를 비롯한 주요 현안 사업들에 대한 논의가 이루어졌다. 정경조 평안남도지사는 참석하여 자리를 빛냈으며, 고향을 떠난 해외 도민들이 고국을 찾는 뜻깊은 자리가 성공적으로 마련될 수 있도록 적극 지원하겠다는 뜻을 전했다.", "image": "photos/2026-06/08_committee.png", "imagePosition": "right"}, {"id": 6, "title": "명예시장·군수 월례 회의", "date": "5. 16", "subtitle": "명예시장·군수와 도정 소통 강화", "body": "정경조 평안남도지사는 2026년 5월 16일 오후 3시, 도청 3층 평남시장·군수실에서 명예시장·군수 월례 회의를 주재했다. 이번 회의는 평안남도 각 지역을 대표하는 명예시장·군수들이 한자리에 모여 각 시군 현안을 공유하고 논의하는 자리로 마련됐다. 정경조 지사는 각 지역 명예시장·군수들의 의견을 도정 운영에 적극 반영하여 도민 화합과 공동체 정신을 더욱 공고히 해 나가겠다는 뜻을 밝혔다.", "image": "photos/2026-06/07_monthly_meeting.jpeg", "imagePosition": "left"}, {"id": 7, "title": "도 직원회의", "date": "5. 23", "subtitle": "도정 방향 점검 직원회의", "body": "정경조 평안남도지사는 5월 23일 오전 10시 도지사실에서 도 직원회의를 주재했다. 이번 회의는 도정 행정의 방향을 점검하고 직원 개개인의 역할과 책임을 공유하기 위해 마련됐다. 정경조 지사는 회의에서 개인별 담당업무 현황을 보고받고, 각 직원이 도정 행정을 능동적으로 이끌어 나갈 수 있도록 당부했다. 특히 직원 모두가 도정의 주체로서 책임감 있게 행정을 이끌고 도민에게 실질적인 도움이 되는 성과를 만들어 나가야 한다고 강조했다. 아울러 긴밀한 협력과 소통을 바탕으로 평안남도 도정 행정이 한 단계 더 발전할 수 있도록 최선을 다하겠다는 뜻을 밝혔다.", "image": "photos/logo.png", "imagePosition": "left"}, {"id": 8, "title": "한많은 대동강 뮤지컬 기자간담회", "date": "5. 23", "subtitle": "대동강 뮤지컬 공연 홍보 나서", "body": "정경조 평안남도지사는 2026년 5월 23일 이북5도청 평화강당에서 '한많은 대동강' 뮤지컬 기자간담회를 직접 주최하고 진행까지 맡아 행사를 이끌었다. 이날 간담회는 평안남도 실향민의 애환과 고향에 대한 그리움을 예술로 승화한 뮤지컬 공연을 언론에 소개하는 자리로 마련됐으며, 공연의 제작 배경과 주요 내용이 상세히 소개됐다. 정경조 지사는 이 뮤지컬이 단순한 공연을 넘어 도민의 정체성과 통일을 향한 염원을 담은 소중한 문화적 메시지임을 강조하며 많은 관심과 응원을 당부했다.", "image": "photos/2026-06/04_press.jpeg", "imagePosition": "right", "links": [{"title": "관련 기사 보기", "url": "https://www.kukak21.com/bbs/board.php?bo_table=news&wr_id=42907"}]}, {"id": 9, "title": "향두계놀이보존회 정기공연", "date": "5. 23", "subtitle": "전통 향두계놀이, 무대 위에 피어나다", "body": "정경조 평안남도지사는 2026년 5월 23일 국립국악원 풍류 사랑방에서 열린 향두계놀이보존회 정기공연에 참석했다. 향두계놀이는 평안도 지역의 오랜 세시풍속에서 비롯된 공동체 놀이문화로, 농경 사회의 두레 정신과 이웃 간 상부상조의 가치를 고스란히 담고 있는 소중한 무형문화유산이다. 이날 공연에서는 보존회 회원들이 전통 복식을 갖추고 선조들의 손길이 배인 가락과 몸짓을 힘차게 재현하며 관람객들로부터 큰 호응을 이끌어냈다. 정경조 지사는 이 자리에서 전통문화의 계승이 곧 도민 화합과 통일 한반도의 문화적 기반을 다지는 일임을 역설하며, 앞으로도 평안도 고유의 민속 예술을 보존하고 널리 알리는 데 도정의 역량을 아끼지 않겠다는 뜻을 밝혔다.", "image": "photos/2026-06/11_hyangdugye.png", "imagePosition": "left"}, {"id": 10, "title": "이북5도 개청77주년 기념", "date": "5. 23", "subtitle": "이북5도 개청 77주년 기념", "body": "정경조 평안남도지사는 2026년 5월 23일 오후 2시 이북5도청 5층 평화강당에서 열린 이북5도 개청 77주년 기념행사에 참석했다. 이번 행사는 1949년 이북5도위원회 설치 이후 77년간 이어온 실향민의 고향 수복 의지와 도정 활동의 역사를 기리기 위해 마련됐다. 이북5도는 분단의 아픔 속에서도 고유의 행정 체계와 전통을 굳건히 유지하며 통일을 향한 염원을 이어왔다. 정경조 지사는 이날 기념사를 통해 77년의 역사가 단순한 시간의 흐름이 아니라 도민의 결집된 통일 의지와 공동체 정신이 축적된 소중한 유산임을 강조하며, 앞으로도 이북5도의 정통성을 계승하고 통일 기반 조성에 더욱 힘쓸 것을 다짐했다.", "image": "photos/2026-06/03_anniversary77.jpeg", "imagePosition": "right"}, {"id": 11, "title": "평양내고향 여자 축구단 『북한여자축구 방한 경기관람』", "date": "5. 23", "subtitle": "남북 여자축구, 화합의 킥오프", "body": "정경조 평안남도지사는 2026년 5월 23일 오후 7시 수원 종합운동장에서 열린 평양내고향 여자 축구단의 북한 여자 축구 방한 경기를 관람했다. 이번 경기는 분단 이후 오랜 시간 단절되었던 남북 스포츠 교류의 물꼬를 다시 트는 역사적인 자리로, 평안남도 출신 실향민과 도민들에게 고향을 향한 그리움과 통일에 대한 희망을 되새기는 특별한 시간이 되었다. 그라운드 위에서 펼쳐진 선수들의 열정적인 플레이는 이념과 경계를 넘어 하나 된 민족의 가능성을 생생히 보여주었으며, 관중석을 가득 메운 도민들의 뜨거운 응원은 공동체 정신과 민족적 유대감을 한껏 고취시켰다. 정경조 지사는 이번 경기 관람이 평안남도 도민의 통일 염원을 실천으로 이어가는 소중한 계기가 되었으며, 앞으로도 남북 화합과 통일 기반 조성을 위한 다양한 교류 활동에 적극 동참해 나갈 것이라는 뜻을 밝혔다.", "image": "photos/2026-06/여자축구.png", "imagePosition": "left", "links": [{"title": "NYT 관련 기사 보기", "url": "https://www.nytimes.com/2026/05/20/world/asia/north-korea-soccer-south-naegohyang.html?unlocked_article_code=1.j1A.WsFn.WWml9Aj6_Vpa&smid=url-share"}]}, {"id": 12, "title": "민주평화통일자문회의 2분기 정기회의 및 역량강화", "date": "5. 23", "subtitle": "통일 역량 강화 한자리에", "body": "민주평화통일자문회의 2분기 정기회의 및 역량강화 행사가 2026년 5월 23일 오후 7시 30분 이북5도청 5층 평화강당에서 민주평통 주관으로 개최됐다. 이번 행사는 이북5도 전체를 대상으로 하는 회의로, 이북5도 각지의 자문위원들이 한자리에 모여 한반도 평화통일을 위한 과제와 실천 방안을 심도 있게 논의하는 자리로 마련됐다. 정경조 평안남도지사는 귀빈으로 참석하여 자리를 빛냈으며, 이북5도 도민 모두의 통일 의지를 결집하고 평화통일의 실질적 기반을 함께 다져나가자는 격려의 뜻을 전했다.", "image": "photos/2026-06/06_minpyeongtong.jpeg", "imagePosition": "right"}], "upcomingItems": [{"date": "6. 12~13", "title": "제11회 속초 실향민문화축제 (속초 엑스포 잔디광장)"}, {"date": "6. 20 (토)", "title": "양덕군민회 정기총회 (본고향맛집 / 12:00)"}], "notice": {"title": "필참 안내 | 제11회 속초 실향민문화축제", "icon": "📣", "lines": ["일시 : 2026. 6. 12(금) ~ 13(토)", "장소 : 속초 엑스포 잔디광장 일원", "운영시간 : 오전 10:00 ~ 오후 6:00", "합동망향제 · 함상위령제 · 개막공연 · 폐막공연", "전국 실향민 노래자랑 / 전국 이북·속초 사투리 경연대회", "북한이탈주민 예술단 공연 · 지역 문화예술 공연", "실향민문화 체험마을 · 이북 전통음식 체험 · 포토존", "문의 : 속초문화관광재단 sokchofestival.or.kr"]}, "schedule": [{"month": "1월", "items": "신년하례 / 국립현충원참배 / 읍·면·동장위촉식 / 행정자문위원회의 / 이북도민 실태조사 및 생활지원(연중)"}, {"month": "2월", "items": "통일원로회의 / 시장·군수월례회의(매월3주차 금요일)"}, {"month": "3월", "items": "읍면동장회의 / 시도사무소장회의 / 사회통합교육(반기1회) / 명예 도민증수여(분기1회)"}, {"month": "4월", "items": "정부포상추천 및 심사 방법 개선방안 토의 / 고향 찾아주기 프로그램 발전 / 행정자문위원회의"}, {"month": "5월", "items": "도민의 날 / 평안남도 명문가 찾기 / 3세가 찾아가는 뿌리 찾기 / 통일원로회의"}, {"month": "6월", "items": "국외이북도민 고국방문단 초청행사(6.22~26) / 명예 도민증 수여 / 시도사무소장 순회회의 / 6.25참전용사 감사·위안행사"}, {"month": "7월", "items": "제3회 북한이탈주민의 날 / 행정자문위원회의 / 한 많은 대동강 뮤지컬 공연 / 원자력발전소견학(예정)"}, {"month": "8월", "items": "화천 하나원방문 / 통일원로회의"}, {"month": "9월", "items": "제1회 평안남도 음식 문화 축제(예정) / 명예도민증수여 / 읍면·동장 분기 회의 / 시도사무소장 순회회의"}, {"month": "10월", "items": "제44회 이북도민 대통령기체육대회(10.17~18) / 정부 포상 수여 / 사회통합교육(후반기) / 행정자문위원회의"}, {"month": "11월", "items": "이북도민 청년의 날 정부포상 수여 / 통일원로회의 / 평안남도 무형유산 발굴 및 이수자 증 수여"}, {"month": "12월", "items": "2026년도 사업 분석 / 명예도민증수여 / 읍면동장분기회의 / 평안남도 명문가증수여 / 3세대가 찾아가는 뿌리 찾기 결과 포상"}]};
+
+buildMagazine();
+</script>
+</body>
+</html>
