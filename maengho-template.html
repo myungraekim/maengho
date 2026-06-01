@@ -980,9 +980,6 @@ async function buildMagazine() {
   // 예정사항 페이지
   mag.innerHTML += buildUpcomingPage(data, `예정`);
 
-  // 월별 추진일정
-  mag.innerHTML += buildSchedulePage(data, `일정`);
-
   // 뒷표지
   mag.innerHTML += buildBackCover(data);
 
