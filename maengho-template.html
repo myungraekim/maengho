@@ -958,6 +958,7 @@ async function buildMagazine() {
   }
 
   const mag = document.getElementById('magazine');
+  data.activities.sort((a, b) => (b.priority || 0) - (a.priority || 0));
   const acts = data.activities;
   const m = data.meta;
 
