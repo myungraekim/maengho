@@ -958,10 +958,7 @@ async function buildMagazine() {
   }
 
   const mag = document.getElementById('magazine');
-  const acts = data.activities.slice().sort((a, b) => {
-    const toNum = d => { const [,day] = d.date.split('.'); return parseInt(day); };
-    return toNum(a) - toNum(b);
-  });
+  const acts = data.activities;
   const m = data.meta;
 
   // 1면: 표지
