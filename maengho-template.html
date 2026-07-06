@@ -853,9 +853,11 @@ function buildUpcomingPage(d, pageNum) {
       <span>${item.title}</span>
     </li>`).join('');
 
-  const noticeLines = d.notice.lines.map((line, i) =>
-    `<li${i < 2 ? ' class="highlight"' : ''}>${line}</li>`
-  ).join('');
+  const noticeLines = d.notice.lines.map((line, i) => {
+    // URL을 클릭 가능한 링크로 변환
+    const linked = line.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+    return `<li${i < 2 ? ' class="highlight"' : ''}>${linked}</li>`;
+  }).join('');
 
   return `<div class="page content-page">
     <div class="page-header">
@@ -959,6 +961,8 @@ async function buildMagazine() {
 
   const mag = document.getElementById('magazine');
   data.activities.sort((a, b) => (b.priority || 0) - (a.priority || 0));
+  // 정렬 후 imagePosition 재할당 — 항상 right/left 번갈아가며 표시
+  data.activities.forEach((a, i) => { a.imagePosition = i % 2 === 0 ? 'right' : 'left'; });
   const acts = data.activities;
   const m = data.meta;
 
