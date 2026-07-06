@@ -105,8 +105,14 @@ def parse_month_schedule(paras: list[str], target_month: int) -> list[dict]:
         "도민의 날 대회\n대체 휴무", "지사님 대체휴무", "지사님 연가",
         "고정안",
     }
+    # ── 편집 규칙 ─────────────────────────────────────────────────
+    # 1) 내부 행정회의 — 도 직원회의는 항상 제외
+    # 2) 경조사 — 결혼, 돌잔치, 장례 등 개인 경조사 제외
+    # 3) 개인 일정 — 연가, 건강검진, 오찬 등 제외
     SKIP_PARTIAL = ["연가", "대체휴무", "대체 휴무", "건강검진", "안과진료",
-                    "황지윤 직원 오찬", "직원 오찬", "주요일정", "氠瑢"]
+                    "황지윤 직원 오찬", "직원 오찬", "주요일정", "氠瑢",
+                    "도 직원회의", "직원회의",          # 내부 행정회의
+                    "결혼", "돌잔치", "장례", "빈소", "부고", "영결식"]  # 경조사
     SKIP_EXACT_DIGITS = set(str(n) for n in range(1, 8))  # 요일 행 숫자
 
     # ── 5월 섹션 찾기 ──
@@ -203,7 +209,25 @@ def parse_month_schedule(paras: list[str], target_month: int) -> list[dict]:
             seen.add(key)
             clean.append(e)
 
-    return sorted(clean, key=lambda x: (x["day"], x.get("time", "")))
+    sorted_events = sorted(clean, key=lambda x: (x["day"], x.get("time", "")))
+
+    # ── 위원회 간담회 1건 제한 ──
+    # 편집 규칙: 같은 성격의 위원회 간담회는 소식지에 1건만 게재
+    TITLE_LIMIT = {"위원회 간담회": 1}
+    title_count: dict[str, int] = {}
+    final = []
+    for e in sorted_events:
+        base = e["title"][:7]  # "위원회 간담회" 앞 7자로 매칭
+        for limited_title, max_count in TITLE_LIMIT.items():
+            if limited_title in e["title"]:
+                base = limited_title
+                break
+        limit = TITLE_LIMIT.get(base, 999)
+        title_count[base] = title_count.get(base, 0) + 1
+        if title_count[base] <= limit:
+            final.append(e)
+
+    return final
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -213,21 +237,32 @@ def parse_month_schedule(paras: list[str], target_month: int) -> list[dict]:
 SYSTEM_PROMPT = """당신은 평안남도 도정 소식지 '맹호출림'의 편집장입니다.
 주어진 행사 정보를 바탕으로 아래 규칙을 엄격히 지켜 기사를 작성하세요.
 
-[규칙]
+[기사 작성 규칙]
 1. subtitle: 행사 핵심을 표현하는 12자 이내 문구
+
 2. body: 공백 포함 250~350자의 기사 본문
-   - "정경조 평안남도지사는" 또는 "정경조 지사는"으로 시작
-   - 행사 날짜, 장소, 핵심 내용 포함
-   - 공동체 정신·도민 화합·전통 계승·통일 기반 등 도정 가치 연결
-   - 반드시 완전한 문장으로 끝낼 것 (문장 중간에 절대 끊지 말 것)
-   - 마지막 문장: "~의 뜻을 밝혔다" / "~강조했다" / "~다짐했다" 형태
-   - 문어체, 경어 없이 서술 (신문 기사 스타일)
+   ▸ 어조·시점
+     - "정경조 평안남도지사는" 또는 "정경조 지사는"으로 시작
+     - 도지사가 행사를 주최·주관했다는 표현 금지
+       → 반드시 "참석했다" / "함께했다" / "자리했다" 등 참여 중심 서술
+     - 문어체, 경어 없이 서술 (신문 기사 스타일)
+   ▸ 내용 구성
+     - 행사 날짜, 장소, 핵심 내용 포함
+     - 실향민의 아픔·고향에 대한 그리움·도민 화합·전통 계승·통일 기반 등
+       행사 성격에 맞는 도정 가치와 연결
+     - 반드시 완전한 문장으로 끝낼 것 (문장 중간에 절대 끊지 말 것)
+   ▸ 마지막 문장 형태 (하나 선택)
+     - "~을 강조했다"
+     - "~의 뜻을 밝혔다"
+     - "~을 다짐했다"
+
 3. priority: 기사 중요도 점수 (1~5 정수)
-   5점: 전체 도민 참여 행사, 남북교류, 외부 언론 보도
+   5점: 전체 도민 참여 행사, 실향민 대규모 행사, 남북교류, 외부 언론 보도
    4점: 지사 주재 핵심 회의 (통일원로, 시장군수월례회의)
-   3점: 위원회 행사, 기념식, 추모식
+   3점: 위원회 행사, 기념식, 추모식, 문화행사
    2점: 문화공연, 뮤지컬 관련
-   1점: 내부 행정회의, 도직원회의
+   1점: 내부 행정회의 (도직원회의 등 — 편집 시 자동 제외됨)
+
 4. JSON만 출력 (```코드블록, 설명문 절대 불가)
 
 출력 형식:
@@ -457,7 +492,7 @@ def main():
         print(f"\n  → --parse-only 모드: JSON 생성 없이 종료합니다.")
         return
 
-    # 최대 항목 수 제한
+    # 최대 항목 수 제한 — 날짜 순서를 유지하면서 자름 (priority 정렬은 JSON 조립 시 수행)
     if len(events) > args.max_items:
         warn(f"{len(events)}건 중 상위 {args.max_items}건만 처리합니다.")
         warn("--max-items N 으로 개수를 조정할 수 있습니다.")
