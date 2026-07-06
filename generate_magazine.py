@@ -560,6 +560,25 @@ def main():
     size_kb = Path(out_file).stat().st_size / 1024
     ok(f"{out_file}  ({size_kb:.1f} KB, {len(events_with_articles)}건)")
 
+    # ── OG 태그 자동 업데이트 (카카오톡 미리보기용) ──
+    template_file = Path("maengho-template.html")
+    if template_file.exists():
+        hdr("[OG] 카카오톡 미리보기 태그 업데이트")
+        html = template_file.read_text(encoding="utf-8")
+        og_title   = f'平南 猛虎出林 — 2026년 {args.month}월 평안남도 도정보고'
+        og_desc    = f'평안남도 도정보고 소식지 맹호출림 {issue_month}월호 | {args.month}월 주요 실시사항을 담았습니다.'
+        og_url     = 'https://myungraekim.github.io/maengho/'
+        html = re.sub(r'<meta property="og:title" content="[^"]*">',
+                      f'<meta property="og:title" content="{og_title}">', html)
+        html = re.sub(r'<meta property="og:description" content="[^"]*">',
+                      f'<meta property="og:description" content="{og_desc}">', html)
+        html = re.sub(r'<meta property="og:url" content="[^"]*">',
+                      f'<meta property="og:url" content="{og_url}">', html)
+        template_file.write_text(html, encoding="utf-8")
+        ok(f"OG 태그 → {issue_month}월호로 업데이트")
+    else:
+        warn("maengho-template.html 없음 — OG 태그 수동 업데이트 필요")
+
     # ── 완료 메시지 ──
     print(f"\n{BOLD}{'━'*54}{RESET}")
     print(f"{BOLD}{GREEN}  ✅ 완료!{RESET}")
