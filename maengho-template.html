@@ -893,12 +893,31 @@ function buildContentPage(activities, pageNum, meta, groupLabel) {
 // ─── 예정사항 페이지 ───
 function buildUpcomingPage(d, pageNum) {
   const m = d.meta;
-  const upcoming = d.upcomingItems.map((item, i) => `
+  const upcoming = d.upcomingItems.map((item, i) => {
+    // upcomingItems이 문자열인 경우 파싱
+    let date = '', title = '';
+    if (typeof item === 'string') {
+      const match = item.match(/^(.*?)\s*\((\d+\.\s*\d+)\)$/);
+      if (match) {
+        title = match[1];
+        date = match[2];
+      } else {
+        title = item;
+        date = '';
+      }
+    } else {
+      // 객체인 경우
+      date = item.date || '';
+      title = item.title || '';
+    }
+
+    return `
     <li>
       <span class="dot dot-${i % 5}"></span>
-      <span class="udate">${item.date}</span>
-      <span>${item.title}</span>
-    </li>`).join('');
+      <span class="udate">${date}</span>
+      <span>${title}</span>
+    </li>`;
+  }).join('');
 
   const noticeLines = d.notice.lines.map((line, i) => {
     // URL을 클릭 가능한 링크로 변환
