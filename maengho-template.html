@@ -625,6 +625,32 @@
     display: block;
   }
 
+  /* ══════════════════════════════
+     갤러리 페이지
+  ══════════════════════════════ */
+  .gallery-page {
+    background: white;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px 22px 60px;
+  }
+  .gallery-item {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   /* ─── 기사 링크 버튼 ─── */
   .art-links { margin-top: 10px; }
   .art-link-btn {
@@ -962,6 +988,43 @@ function buildBackCover(d) {
   </div>`;
 }
 
+// ─── 갤러리 페이지 (한 많은 대동강) ───
+async function buildGalleryPage(m) {
+  const galleryPath = 'photos/2026-08/daedongang';
+  let images = [];
+
+  // 폴더에서 이미지 자동 로드 (01.jpg ~ 10.jpg)
+  for (let i = 1; i <= 10; i++) {
+    const num = String(i).padStart(2, '0');
+    images.push(`${galleryPath}/${num}.jpg`);
+  }
+
+  const galleryItems = images.map((img, idx) => `
+    <div class="gallery-item">
+      <img src="${img}" alt="한 많은 대동강 ${idx + 1}">
+    </div>
+  `).join('');
+
+  return `<div class="page content-page gallery-page">
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="photos/logo.png" style="width:36px;height:36px;object-fit:contain;">
+        <div>
+          <div class="title-cn">平南 猛虎出林</div>
+          <div class="title-kr" style="font-size:12px;">음악극 '한 많은 대동강' 무대 스케치</div>
+        </div>
+      </div>
+      <div class="issue-info">MAGAZINE<br>${m.year}.${m.issueMonth}</div>
+    </div>
+    <div class="section-label">공연 장면</div>
+    <div class="gallery-grid">${galleryItems}</div>
+    <div class="page-footer">
+      <span class="copyright">Copyright. 평안남도 도지사실</span>
+      <span class="page-num">갤러리</span>
+    </div>
+  </div>`;
+}
+
 // ─── 16개시군 마무리 페이지 ───
 function buildCitiesPage() {
   return `<div class="page cities-page">
@@ -1003,6 +1066,11 @@ async function buildMagazine() {
 
   // 예정사항 페이지
   mag.innerHTML += buildUpcomingPage(data, `예정`);
+
+  // 갤러리 페이지 (8월호만)
+  if (m.issueMonth === 8) {
+    mag.innerHTML += await buildGalleryPage(m);
+  }
 
   // 뒷표지
   mag.innerHTML += buildBackCover(data);
