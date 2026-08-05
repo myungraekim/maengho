@@ -138,9 +138,8 @@
       "subtitle": "KBS라디오 출연, 도정 소식 전파",
       "body": "정경조 평안남도지사는 7월 25일 오후 1시 30분 KBS 라디오 방송국을 찾아 녹화 방송에 자리했다. 이번 방송 출연을 통해 정 지사는 평안남도의 주요 도정 현안과 실향민 사회의 다양한 소식을 전국 청취자들에게 알리는 기회를 가졌다. 평안남도는 실향민 1세대의 고향에 대한 간절한 그리움을 잇고, 후속 세대에게 고향의 역사와 전통을 올바르게 전승하는 데 지속적으로 힘써 왔다. 정 지사는 방송을 통해 도민 간 화합을 더욱 굳건히 다지고 통일을 향한 염원을 널리 확산시켜 나가겠다는 뜻을 밝혔다.",
       "priority": 3,
-      "image": "https://myungraekim.github.io/maengho/photos/2026-07/이북5도위원회로고.png",
-      "imagePosition": "left",
-      "isLogo": true
+      "image": "https://myungraekim.github.io/maengho/photos/2026-08/01_kbs.png",
+      "imagePosition": "left"
     },
     {
       "id": 2,
@@ -161,17 +160,6 @@
       "priority": 2,
       "image": "https://myungraekim.github.io/maengho/photos/2026-08/03_minpyeongtong.jpeg",
       "imagePosition": "left"
-    },
-    {
-      "id": 12,
-      "title": "2026국내자문위원연수",
-      "date": "7. 16",
-      "subtitle": "국내자문위원 역량 강화 연수",
-      "body": "정경조 평안남도지사는 7월 16일 2026국내자문위원연수에 참석했다. 이번 연수는 이북5도 각 도의 국내자문위원들이 모여 도정 현안과 실향민 문제를 논의하고, 위원들의 역량을 강화하기 위해 마련됐다. 정 지사는 자문위원들의 역할이 도정 운영의 중요한 자산임을 강조하며, 앞으로도 자문위원들과의 활발한 소통을 통해 실향민 중심의 도정을 펼쳐나가겠다는 뜻을 밝혔다.",
-      "priority": 2,
-      "image": "https://myungraekim.github.io/maengho/photos/2026-07/이북5도위원회로고.png",
-      "imagePosition": "right",
-      "isLogo": true
     },
     {
       "id": 13,
