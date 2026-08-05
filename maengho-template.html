@@ -846,7 +846,7 @@ function buildCover(d) {
 // ─── 본문 페이지 빌더 ───
 function buildActivityBlock(act, small) {
   const imgPos = act.imagePosition === 'left' ? 'img-left' : 'img-right';
-  const logoStyle = act.isLogo ? 'style="max-width: 200px; max-height: 200px;"' : '';
+  const logoStyle = act.isLogo ? 'style="object-fit: contain; object-position: center;"' : '';
   const imgHtml = `<div class="activity-image">
     <img src="${act.image}" alt="${act.title}" loading="lazy" ${logoStyle}>
     <div class="activity-image-caption">${act.title} (${act.date})</div>
