@@ -933,6 +933,15 @@ function buildUpcomingPage(d, pageNum) {
     return `<li${i < 2 ? ' class="highlight"' : ''}>${linked}</li>`;
   }).join('');
 
+  // 9월 일정 데이터 추출
+  const septemberSchedule = d.schedule.find(s => s.month === "9월")?.items || "";
+  const septemberItems = septemberSchedule
+    ? septemberSchedule.split(' / ').map(item => ({
+        date: '',
+        title: item.trim()
+      }))
+    : [];
+
   return `<div class="page content-page">
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:10px;">
@@ -941,10 +950,15 @@ function buildUpcomingPage(d, pageNum) {
       </div>
       <div class="issue-info">MAGAZINE<br>${m.year}.${m.issueMonth}</div>
     </div>
-    <div class="section-label">${m.reportMonth + 1}月 주요 예정사항</div>
+    <div class="section-label">9月 주요 예정사항</div>
     <div class="upcoming-section">
-      <h3>${m.reportMonth + 1}월 주요 예정사항</h3>
-      <ul class="upcoming-list">${upcoming}</ul>
+      <h3>9월 주요 예정사항</h3>
+      <ul class="upcoming-list">${septemberItems.map((item, i) => `
+        <li>
+          <span class="dot dot-${i % 5}"></span>
+          <span>${item.title}</span>
+        </li>
+      `).join('')}</ul>
     </div>
 
     <div class="notice-box">
@@ -1100,12 +1114,8 @@ async function buildMagazine() {
     pageNum++;
   }
 
-  // 예정사항 페이지
+  // 예정사항 페이지 (9월 주요 예정사항 포함)
   mag.innerHTML += buildUpcomingPage(data, `예정`);
-
-  // 월별 일정 페이지
-  let schedulePageNum = pageNum + 1;
-  mag.innerHTML += buildSchedulePage(data, schedulePageNum);
 
   // 갤러리 페이지 (8월호만)
   if (m.issueMonth === 8) {
