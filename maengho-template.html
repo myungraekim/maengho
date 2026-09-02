@@ -851,7 +851,9 @@ function buildCover(d) {
 // ─── 본문 페이지 빌더 ───
 function buildActivityBlock(act, small) {
   const imgPos = act.imagePosition === 'left' ? 'img-left' : 'img-right';
-  const logoStyle = act.isLogo ? 'style="object-fit: contain; object-position: center;"' : '';
+  // URL이 logo.png나 위원회로고를 포함하면 로고 스타일 적용
+  const isLogo = act.image.includes('logo.png') || act.image.includes('위원회로고');
+  const logoStyle = isLogo ? 'style="object-fit: contain; object-position: center; max-width: 120px; max-height: 120px; margin: auto; display: block;"' : '';
   const imgHtml = `<div class="activity-image">
     <img src="${act.image}" alt="${act.title}" loading="lazy" ${logoStyle}>
     <div class="activity-image-caption">${act.title} (${act.date})</div>
@@ -1100,6 +1102,10 @@ async function buildMagazine() {
 
   // 예정사항 페이지
   mag.innerHTML += buildUpcomingPage(data, `예정`);
+
+  // 월별 일정 페이지
+  let schedulePageNum = pageNum + 1;
+  mag.innerHTML += buildSchedulePage(data, schedulePageNum);
 
   // 갤러리 페이지 (8월호만)
   if (m.issueMonth === 8) {
