@@ -120,9 +120,9 @@ class MaenghoMasterPublish:
         print("  ✓ coverItems 정렬")
         self.data['coverItems'].sort(key=extract_date)
 
-        # activities 정렬
+        # activities 정렬 (날짜순만)
         print("  ✓ activities 정렬")
-        self.data['activities'].sort(key=lambda x: (-x.get('priority', 0), extract_date(x)))
+        self.data['activities'].sort(key=lambda x: extract_date(x))
 
         # upcomingItems 정렬
         print("  ✓ upcomingItems 정렬\n")
@@ -155,19 +155,18 @@ class MaenghoMasterPublish:
                             photos[folder_name] = str(img)
                             break
 
-        # 매칭 규칙 (한글 title 검색용, 파일명은 영문으로 정리됨)
+        # 매칭 규칙 (한글 title 검색용, 파일명은 숫자로 정리됨)
         matching_rules = {
-            "통일원로": ("통일원로의원 간담회", ["tongil", "08"]),
-            "함북": ("함북도지사 이.취임식", ["hambuk", "10"]),
-            "함남": ("함남도지사 이.취임식", ["hamnam", "09"]),
-            "백선엽": ("백선엽 장군 6주기 추모식", ["baekseonyeop", "04"]),
-            "덕천군": ("덕천군 제59차 정기총회", ["dekcheon", "02"]),
-            "국민일보": ("국민일보 언론 인터뷰", ["kbs", "01"]),
-            "북한이탈주민": ("제3회 북한이탈 주민의 날", ["northkoreans", "05"]),
-            "시장군수": ("명예시장·군수 월례회의", ["mayor_county", "06"]),
-            "민주평통": ("민주평통자문회의이북5도지역회의", ["minpyeongtong", "03"]),
-            "조사연구": ("조사연구자료 설명회", ["research", "07"]),
-            "대동강": ("음악극'한 많은 대동강'공연", ["daedongang"]),
+            "통일원로위원회": ("통일원로위원회 회의", ["02"]),
+            "행정자문위원": ("행정자문위원 회의", ["04"]),
+            "간사읍": ("간사읍·면·동장회의", ["05"]),
+            "하나의 증언": ("『하나의 증언』 출판 기념회", ["07"]),
+            "광복절": ("제81주년 광복절 경축식", ["01"]),
+            "한마음 볼링": ("제6회 평안남도 한마음 볼링대회", ["08"]),
+            "을지훈련 민방위": ("을지훈련 민방위 훈련", ["09"]),
+            "평양검무": ("평양검무보존회 인터뷰", ["11"]),
+            "수건춤": ("평남 수건춤 이수자 이수증 수여식", ["12"]),
+            "대동회": ("대동회 단합대회", ["대동", "10"]),
         }
 
         matched = 0
