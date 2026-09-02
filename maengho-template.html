@@ -349,11 +349,16 @@
     border: 1px solid var(--border-light);
   }
   .activity-image img[src*="평안남도로고"],
-  .activity-image img[src*="logo.png"] {
+  .activity-image img[src*="logo.png"],
+  .activity-image img[src*="위원회로고"] {
     object-fit: contain;
     background: var(--cream);
-    padding: 24px;
-    height: 200px;
+    padding: 16px;
+    height: 180px;
+    max-width: 120px;
+    max-height: 120px;
+    margin: auto;
+    display: block;
   }
   .activity-image img[src*="서도소리"] {
     object-fit: contain;
@@ -958,9 +963,15 @@ function buildUpcomingPage(d, pageNum) {
 // ─── 월별 추진일정 페이지 ───
 function buildSchedulePage(d, pageNum) {
   const m = d.meta;
+
+  // 9월 예정사항 추출
+  const septemberItems = d.schedule.find(s => s.month === "9월")?.items || "";
+
   const rows = d.schedule.map((row, i) => {
     const isCurrentMonth = (i + 1) === m.reportMonth;
-    return `<tr${isCurrentMonth ? ' class="highlight-row"' : ''}>
+    const isIssueMonth = (i + 1) === m.issueMonth;
+    const highlight = isCurrentMonth || isIssueMonth;
+    return `<tr${highlight ? ' class="highlight-row"' : ''}>
       <th>${row.month}</th>
       <td>${row.items}</td>
     </tr>`;
@@ -981,6 +992,11 @@ function buildSchedulePage(d, pageNum) {
         <thead><tr><th>월</th><th>내 용</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
+
+      ${septemberItems ? `<div style="margin-top:20px; padding:16px; background:var(--gold-pale); border-left:4px solid var(--gold);">
+        <h4 style="color:var(--navy); margin-bottom:10px; font-weight:700;">📅 다음달(9월) 주요 예정사항</h4>
+        <p style="font-size:12px; line-height:1.8; color:var(--text-mid);">${septemberItems.split(' / ').join('<br>')}</p>
+      </div>` : ''}
     </div>
     <div class="page-footer">
       <span class="copyright">Copyright. 평안남도 도지사실</span>
