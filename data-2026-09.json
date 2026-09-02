@@ -123,7 +123,7 @@
       "subtitle": "통일원로와 미래를 논하다",
       "body": "정경조 평안남도지사는 8월 20일 오후 12시 코리아나호텔에서 열린 통일원로위원회 회의에 참석했다. 이날 회의는 평안남도 출신 통일원로들이 한자리에 모여 한반도 평화와 통일의 방향을 논의하는 뜻깊은 자리로 마련되었다. 참석자들은 실향민 1세대가 품어온 고향에 대한 간절한 그리움과 통일에 대한 염원을 나누며 후세대에 이 뜻을 이어가야 할 책임을 함께 되짚었다.",
       "priority": 4,
-      "image": "https://myungraekim.github.io/maengho/photos/2026-09/02_통일원로위원회_회의.jpg",
+      "image": "https://myungraekim.github.io/maengho/photos/logo.png",
       "imagePosition": "left"
     },
     {
@@ -181,9 +181,7 @@
   "notice": {
     "title": "주요 공지사항",
     "icon": "📌",
-    "lines": [
-      "(공지사항을 직접 입력하세요)"
-    ]
+    "lines": []
   },
   "schedule": [
     {
