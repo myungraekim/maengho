@@ -933,14 +933,14 @@ function buildUpcomingPage(d, pageNum) {
     return `<li${i < 2 ? ' class="highlight"' : ''}>${linked}</li>`;
   }).join('');
 
-  // 9월 일정 데이터 추출
-  const septemberSchedule = d.schedule.find(s => s.month === "9월")?.items || "";
-  const septemberItems = septemberSchedule
-    ? septemberSchedule.split(' / ').map(item => ({
-        date: '',
-        title: item.trim()
-      }))
-    : [];
+  // 다음달 일정 데이터 추출 (upcomingItems 사용)
+  const nextMonthNumber = m.issueMonth;
+  const monthNames = ['', '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+  const monthKorean = monthNames[nextMonthNumber] || '예정';
+  const monthChinese = nextMonthNumber === 10 ? '10月' : nextMonthNumber === 11 ? '11月' : nextMonthNumber === 12 ? '12月' : '予定';
+
+  // upcomingItems 객체로 변환
+  const upcomingList = upcoming || [];
 
   return `<div class="page content-page">
     <div class="page-header">
@@ -950,15 +950,10 @@ function buildUpcomingPage(d, pageNum) {
       </div>
       <div class="issue-info">MAGAZINE<br>${m.year}.${m.issueMonth}</div>
     </div>
-    <div class="section-label">9月 주요 예정사항</div>
+    <div class="section-label">${monthChinese} 주요 예정사항</div>
     <div class="upcoming-section">
-      <h3>9월 주요 예정사항</h3>
-      <ul class="upcoming-list">${septemberItems.map((item, i) => `
-        <li>
-          <span class="dot dot-${i % 5}"></span>
-          <span>${item.title}</span>
-        </li>
-      `).join('')}</ul>
+      <h3>${monthKorean} 주요 예정사항</h3>
+      <ul class="upcoming-list">${upcomingList}</ul>
     </div>
 
     <div class="notice-box">
