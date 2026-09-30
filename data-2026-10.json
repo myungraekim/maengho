@@ -154,6 +154,12 @@
       "highlight": false
     },
     {
+      "title": "제4358주년 개천절 경축식",
+      "date": "10. 3",
+      "priority": 3,
+      "highlight": false
+    },
+    {
       "title": "강동군민회 정기총회",
       "date": "10. 3",
       "priority": 3,
@@ -166,26 +172,26 @@
       "highlight": false
     },
     {
-      "title": "제4358주년 개천절 경축식",
-      "date": "10. 3",
+      "title": "평안남도 수건춤 정기공연",
+      "date": "10. 4",
+      "priority": 3,
+      "highlight": false
+    },
+    {
+      "title": "이북도민 통일관련 설문조사결과 기자간담회",
+      "date": "10. 7",
       "priority": 3,
       "highlight": false
     },
     {
       "title": "580돌 한글날 경축식",
-      "date": "10. 3",
+      "date": "10. 9",
       "priority": 3,
       "highlight": false
     },
     {
       "title": "강서군민회 정기총회",
-      "date": "10. 10",
-      "priority": 3,
-      "highlight": false
-    },
-    {
-      "title": "한글날 기념식",
-      "date": "10. 10",
+      "date": "10. 9",
       "priority": 3,
       "highlight": false
     },
@@ -197,19 +203,13 @@
     },
     {
       "title": "제107회 전국체육대회 개회식",
-      "date": "10. 17",
+      "date": "10. 16",
       "priority": 4,
       "highlight": false
     },
     {
-      "title": "제44회 대통령기 이북도민 체육대회 축구예선전",
-      "date": "10. 19",
-      "priority": 5,
-      "highlight": true
-    },
-    {
       "title": "제44회 대통령기 이북도민 체육대회",
-      "date": "10. 19",
+      "date": "10. 17~18",
       "priority": 5,
       "highlight": true
     },
