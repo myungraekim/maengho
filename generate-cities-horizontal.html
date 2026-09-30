@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>평안남도 16개시군 로고 - 가로 레이아웃</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #0d2340;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #0d2340;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 600;
+        }
+        button:hover {
+            background: #1a3557;
+        }
+        .canvas-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        canvas {
+            max-width: 100%;
+            border: 1px solid #ddd;
+        }
+        .info {
+            background: #e8f4f8;
+            border-left: 4px solid #0d2340;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .info p {
+            margin: 8px 0;
+            color: #333;
+        }
+        .grid-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+        }
+        .logo-item {
+            width: 120px;
+            height: 120px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 12px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📍 평안남도 & 16개시군 로고 - 가로 레이아웃</h1>
+
+    <div class="info">
+        <p><strong>📋 구성:</strong> 왼쪽에 평안남도 로고, 오른쪽에 4개씩 4줄로 16개 시군 로고</p>
+        <p><strong>📐 이미지 크기:</strong> 1100px × 750px</p>
+        <p><strong>🎨 배경:</strong> 맹호출림 네이비 블루 (#0d2340)</p>
+    </div>
+
+    <div class="controls">
+        <button onclick="downloadImage()">💾 이미지 다운로드 (PNG)</button>
+        <button onclick="location.reload()">🔄 초기화</button>
+    </div>
+
+    <div class="canvas-wrapper">
+        <canvas id="canvas" width="1100" height="750"></canvas>
+    </div>
+
+    <div class="grid-preview">
+        <div class="logo-item" style="grid-column: span 1;">
+            <div style="text-align: center;">
+                <div style="font-weight: bold; margin-bottom: 5px;">평안남도</div>
+                <div style="font-size: 10px; color: #999;">로고</div>
+            </div>
+        </div>
+        <div class="logo-item">창원시</div>
+        <div class="logo-item">부산시</div>
+        <div class="logo-item">대구시</div>
+        <div class="logo-item">대전시</div>
+
+        <div class="logo-item">광주시</div>
+        <div class="logo-item">울산시</div>
+        <div class="logo-item">경기도</div>
+        <div class="logo-item">강원도</div>
+
+        <div class="logo-item">충북도</div>
+        <div class="logo-item">충남도</div>
+        <div class="logo-item">전북도</div>
+        <div class="logo-item">전남도</div>
+
+        <div class="logo-item">경북도</div>
+        <div class="logo-item">경남도</div>
+        <div class="logo-item">제주도</div>
+        <div class="logo-item">세종시</div>
+    </div>
+</div>
+
+<script>
+async function initCanvas() {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // 배경색 설정 (맹호출림 navy)
+    ctx.fillStyle = '#0d2340';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // 평안남도 로고 로드 및 그리기
+    const logo = new Image();
+    logo.crossOrigin = 'anonymous';
+    logo.src = 'photos/logo.png';
+
+    logo.onload = function() {
+        // 왼쪽에 평안남도 로고 배치
+        const logoSize = 280;
+        const logoPadding = 50;
+        ctx.drawImage(logo, logoPadding, (canvas.height - logoSize) / 2, logoSize, logoSize);
+
+        // 오른쪽에 4x4 그리드 텍스트로 표시
+        drawCitiesGrid(ctx, canvas);
+    };
+
+    logo.onerror = function() {
+        // 로고 로드 실패 시 텍스트로만 표시
+        ctx.fillStyle = 'white';
+        ctx.font = '24px Noto Sans KR';
+        ctx.textAlign = 'center';
+        ctx.fillText('평안남도', canvas.width / 4, canvas.height / 2);
+        drawCitiesGrid(ctx, canvas);
+    };
+}
+
+function drawCitiesGrid(ctx, canvas) {
+    const cities = [
+        '평양시', '남포시', '개풍군', '곡산군',
+        '수안군', '토산군', '안주시', '덕천시',
+        '양덕군', '숙천군', '문천군', '기성군',
+        '평성시', '증산군', '신미도', '강령군'
+    ];
+
+    const gridStartX = 450;
+    const gridStartY = 100;
+    const cellWidth = 150;
+    const cellHeight = 150;
+    const cols = 4;
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+    ctx.strokeStyle = 'rgba(200, 168, 75, 0.3)';
+    ctx.lineWidth = 1;
+
+    // 그리드 라인 그리기
+    for (let row = 0; row < 4; row++) {
+        for (let col = 0; col < 4; col++) {
+            const x = gridStartX + col * cellWidth;
+            const y = gridStartY + row * cellHeight;
+
+            ctx.strokeRect(x + 10, y + 10, cellWidth - 20, cellHeight - 20);
+
+            // 도시명 텍스트
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 14px Noto Sans KR';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            const idx = row * 4 + col;
+            if (idx < cities.length) {
+                ctx.fillText(cities[idx], x + cellWidth / 2, y + cellHeight / 2);
+            }
+        }
+    }
+
+    // 상단 제목
+    ctx.fillStyle = '#c8a84b';
+    ctx.font = 'bold 20px Noto Sans KR';
+    ctx.textAlign = 'center';
+    ctx.fillText('16개 시군', canvas.width - 180, 40);
+}
+
+function downloadImage() {
+    const canvas = document.getElementById('canvas');
+
+    // canvas를 blob으로 변환
+    canvas.toBlob(function(blob) {
+        // blob을 URL로 생성
+        const url = URL.createObjectURL(blob);
+
+        // a 태그로 다운로드 실행
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = '평안남도-16개시군-가로.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // URL 해제
+        URL.revokeObjectURL(url);
+    }, 'image/png', 1.0);
+}
+
+// 페이지 로드 시 캔버스 초기화
+window.addEventListener('load', initCanvas);
+</script>
+
+</body>
+</html>
