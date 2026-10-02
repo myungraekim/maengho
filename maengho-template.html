@@ -800,7 +800,7 @@ function handlePrint() {
 
 // ─── 데이터 파일 경로 ───
 // 실제 사용 시 이 경로만 변경하면 됩니다
-const DATA_FILE = 'data-2026-10.json?v=20261002-3';
+const DATA_FILE = 'data-2026-10.json?v=20261002-4';
 
 // ─── 도트 색상 ───
 const DOT_COLORS = ['#4caf50','#ffc107','#2196f3','#9c27b0','#ff5722','#00bcd4','#e91e63','#795548'];
@@ -1021,10 +1021,8 @@ function buildBackCover(d) {
   const m = d.meta;
   return `<div class="page back-cover" style="display:flex;flex-direction:column;">
     <img src="photos/ibu5do-faq-poster.jpg" alt="이북5도 QnA" style="flex:1.2;width:100%;object-fit:contain;padding:8px;border:1px solid var(--border-light);">
-    <div style="flex:0.8;padding:12px;background:rgba(12,35,64,0.95);color:white;text-align:center;border-top:1px solid #c8a84b;">
-      <h3 style="font-size:13px;margin:4px 0;font-weight:700;">📊 이북도민 통일관련 설문조사</h3>
-      <p style="font-size:10px;margin:4px 0;line-height:1.4;color:#d0d0d0;">실향민 여론 수집 및 정책 자료</p>
-      <a href="https://myungraekim.github.io/ibu5do-faq/" target="_blank" style="display:inline-block;padding:4px 10px;background:#c8a84b;color:#0d2340;text-decoration:none;border-radius:3px;font-weight:600;font-size:10px;margin:6px 0;">📱 결과 자세히 보기</a>
+    <div style="flex:0.8;padding:8px;background:rgba(12,35,64,0.95);color:white;text-align:center;border-top:1px solid #c8a84b;display:flex;align-items:center;justify-content:center;">
+      <a href="https://myungraekim.github.io/ibu5do-faq/" target="_blank" style="display:inline-block;padding:6px 14px;background:#c8a84b;color:#0d2340;text-decoration:none;border-radius:3px;font-weight:600;font-size:11px;">📱 이북5도 FAQ</a>
     </div>
     <div class="pub-info" style="flex:0.6;padding:8px;border-top:1px solid var(--border-light);">
       <h4 style="margin:0 0 4px 0;font-size:12px;">📋 발간정보</h4>
