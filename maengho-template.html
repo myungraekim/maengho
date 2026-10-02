@@ -1072,6 +1072,16 @@ async function buildGalleryPage(m) {
   </div>`;
 }
 
+// ─── 이북5도 FAQ 페이지 ───
+function buildFAQPage() {
+  return `<div class="page faq-page" style="position:relative;overflow:hidden;">
+    <img src="photos/ibu5do-faq-poster.png" alt="이북5도 관련 QnA" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:1;">
+    <a href="https://myungraekim.github.io/ibu5do-faq/" target="_blank" style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:10;padding:12px 24px;background:rgba(12,35,64,0.85);color:white;text-decoration:none;border-radius:4px;font-weight:600;font-size:14px;border:2px solid #c8a84b;transition:all 0.3s;">
+      📱 이북5도 FAQ 더보기
+    </a>
+  </div>`;
+}
+
 // ─── 16개시군 마무리 페이지 ───
 function buildCitiesPage() {
   return `<div class="page cities-page">
@@ -1119,6 +1129,9 @@ async function buildMagazine() {
 
   // 뒷표지
   mag.innerHTML += buildBackCover(data);
+
+  // 이북5도 FAQ 페이지
+  mag.innerHTML += buildFAQPage();
 
   // 16개시군 마무리 페이지
   mag.innerHTML += buildCitiesPage();
