@@ -1019,33 +1019,20 @@ function buildSchedulePage(d, pageNum) {
 // ─── 발간정보 (뒷표지) ───
 function buildBackCover(d) {
   const m = d.meta;
-  return `<div class="page back-cover" style="position:relative;overflow:hidden;">
-    <!-- 설문조사 포스터 배경 -->
-    <div style="position:absolute;top:0;left:0;width:100%;height:65%;z-index:1;">
-      <img src="photos/ibu5do-faq-poster.png" alt="이북5도 관련 설문조사" style="width:100%;height:100%;object-fit:cover;">
+  return `<div class="page back-cover" style="display:flex;flex-direction:column;">
+    <img src="photos/ibu5do-faq-poster.png" alt="이북5도 QnA" style="flex:1.2;width:100%;object-fit:contain;padding:8px;">
+    <div style="flex:0.8;padding:12px;background:rgba(12,35,64,0.95);color:white;text-align:center;border-top:1px solid #c8a84b;">
+      <h3 style="font-size:13px;margin:4px 0;font-weight:700;">📊 이북도민 통일관련 설문조사</h3>
+      <p style="font-size:10px;margin:4px 0;line-height:1.4;color:#d0d0d0;">실향민 여론 수집 및 정책 자료</p>
+      <a href="https://myungraekim.github.io/ibu5do-faq/" target="_blank" style="display:inline-block;padding:4px 10px;background:#c8a84b;color:#0d2340;text-decoration:none;border-radius:3px;font-weight:600;font-size:10px;margin:6px 0;">📱 결과 자세히 보기</a>
     </div>
-
-    <!-- 설문조사 정보 오버레이 -->
-    <div style="position:absolute;bottom:35%;left:0;right:0;z-index:10;padding:20px;background:rgba(12,35,64,0.9);color:white;text-align:center;">
-      <h3 style="font-size:16px;margin:0 0 12px 0;font-weight:700;">📊 이북도민 통일관련 설문조사 결과</h3>
-      <p style="font-size:12px;margin:0 0 10px 0;line-height:1.6;">
-        이북도민의 통일·대북정책에 대한 인식을 조사<br>
-        실향민 여론 수집 및 정책 반영 자료
-      </p>
-      <a href="https://myungraekim.github.io/ibu5do-faq/" target="_blank" style="display:inline-block;padding:8px 16px;background:#c8a84b;color:#0d2340;text-decoration:none;border-radius:4px;font-weight:600;font-size:12px;margin-top:8px;">
-        📱 설문조사 결과 자세히 보기
-      </a>
-    </div>
-
-    <!-- 발간정보 -->
-    <div class="pub-info" style="position:absolute;bottom:0;left:0;right:0;z-index:5;">
-      <h4>📋 발 간 정 보</h4>
-      <dl>
+    <div class="pub-info" style="flex:0.6;padding:8px;border-top:1px solid var(--border-light);">
+      <h4 style="margin:0 0 4px 0;font-size:12px;">📋 발간정보</h4>
+      <dl style="font-size:9px;margin:0;">
         <dt>발간인</dt><dd>평안남도 도지사 ${m.governor}</dd>
-        <dt>편집·기획</dt><dd>평안남도 비서실 정책보좌 ${m.editor.replace('평안남도 비서실 정책보좌 ', '')}</dd>
+        <dt>편집·기획</dt><dd>${m.editor.replace('평안남도 비서실 정책보좌 ', '')}</dd>
         <dt>연락처</dt><dd>${m.contact}</dd>
-        <dt>이메일</dt><dd><a href="mailto:${m.email}">${m.email}</a></dd>
-        <dt>홈페이지</dt><dd><a href="${m.homepage}">${m.homepage}</a></dd>
+        <dt>이메일</dt><dd><a href="mailto:${m.email}" style="color:var(--navy);">${m.email}</a></dd>
       </dl>
     </div>
   </div>`;
