@@ -942,12 +942,6 @@ function buildUpcomingPage(d, pageNum) {
   // upcomingItems 객체로 변환
   const upcomingList = upcoming || [];
 
-  // 예정사항 포스터 (upcomingItems 항목에 poster 경로가 있을 때만 표시)
-  const upcomingPosters = d.upcomingItems
-    .filter(item => item && item.poster)
-    .map(item => `<figure class="upcoming-poster" style="margin:8px 0 0 0;text-align:center;">
-      <img src="${item.poster}" alt="${item.title}" style="max-width:100%;max-height:260px;object-fit:contain;">
-    </figure>`).join('');
 
   return `<div class="page content-page">
     <div class="page-header">
@@ -961,7 +955,6 @@ function buildUpcomingPage(d, pageNum) {
     <div class="upcoming-section">
       <h3>${monthKorean} 주요 예정사항</h3>
       <ul class="upcoming-list">${upcomingList}</ul>
-      ${upcomingPosters}
     </div>
 
     <div class="notice-box">
@@ -1022,6 +1015,15 @@ function buildSchedulePage(d, pageNum) {
       <span class="page-num">${pageNum}</span>
     </div>
   </div>`;
+}
+
+// ─── 예정사항 포스터 전면 페이지 (upcomingItems의 poster 경로 기준) ───
+function buildPosterPages(d) {
+  return d.upcomingItems
+    .filter(item => item && item.poster)
+    .map(item => `<div class="page poster-page" style="display:flex;align-items:center;justify-content:center;padding:10px;background:#fff;">
+      <img src="${item.poster}" alt="${item.title}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;">
+    </div>`).join('');
 }
 
 // ─── 발간정보 (뒷표지) ───
@@ -1121,6 +1123,9 @@ async function buildMagazine() {
   if (m.issueMonth === 8) {
     mag.innerHTML += await buildGalleryPage(m);
   }
+
+  // 예정사항 포스터 전면 페이지 (발간정보 앞)
+  mag.innerHTML += buildPosterPages(data);
 
   // 뒷표지
   mag.innerHTML += buildBackCover(data);
