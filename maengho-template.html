@@ -807,7 +807,8 @@ const DOT_COLORS = ['#4caf50','#ffc107','#2196f3','#9c27b0','#ff5722','#00bcd4',
 
 // ─── 커버 파싱 (날짜 추출) ───
 function parseCoverItem(item) {
-  const match = item.match(/^(.*?)\s*(\(\d+\.\s*\d+(?:\s*\/\s*\d+\.\s*\d+)?\))$/);
+  // 날짜 범위: (10. 3), (10. 17~18), (10. 17∼18), (10. 16/17) 모두 날짜 칸에 표시
+  const match = item.match(/^(.*?)\s*(\(\d+\.\s*\d+(?:\s*[~∼\/]\s*\d+(?:\.\s*\d+)?)?\))$/);
   if (match) return { text: match[1].trim(), date: match[2] };
   return { text: item, date: '' };
 }
