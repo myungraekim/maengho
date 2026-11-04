@@ -1020,10 +1020,6 @@ function buildSchedulePage(d, pageNum) {
 function buildBackCover(d) {
   const m = d.meta;
   return `<div class="page back-cover" style="display:flex;flex-direction:column;">
-    <img src="photos/ibu5do-faq-poster.jpg" alt="이북5도 QnA" style="flex:1.2;width:100%;object-fit:contain;padding:8px;border:1px solid var(--border-light);">
-    <div style="flex:0.8;padding:8px;background:rgba(12,35,64,0.95);color:white;text-align:center;border-top:1px solid #c8a84b;display:flex;align-items:center;justify-content:center;">
-      <a href="https://myungraekim.github.io/ibu5do-faq/" target="_blank" style="display:inline-block;padding:6px 14px;background:#c8a84b;color:#0d2340;text-decoration:none;border-radius:3px;font-weight:600;font-size:11px;">📱 이북5도 FAQ</a>
-    </div>
     <div class="pub-info" style="flex:0.6;padding:8px;border-top:1px solid var(--border-light);">
       <h4 style="margin:0 0 4px 0;font-size:12px;">📋 발간정보</h4>
       <dl style="font-size:9px;margin:0;">
@@ -1070,16 +1066,6 @@ async function buildGalleryPage(m) {
       <span class="copyright">Copyright. 평안남도 도지사실</span>
       <span class="page-num">갤러리</span>
     </div>
-  </div>`;
-}
-
-// ─── 이북5도 FAQ 페이지 ───
-function buildFAQPage() {
-  return `<div class="page faq-page" style="position:relative;overflow:hidden;">
-    <img src="photos/ibu5do-faq-poster.jpg" alt="이북5도 관련 QnA" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:1;">
-    <a href="https://myungraekim.github.io/ibu5do-faq/" target="_blank" style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:10;padding:12px 24px;background:rgba(12,35,64,0.85);color:white;text-decoration:none;border-radius:4px;font-weight:600;font-size:14px;border:2px solid #c8a84b;transition:all 0.3s;">
-      📱 이북5도 FAQ 더보기
-    </a>
   </div>`;
 }
 
@@ -1130,9 +1116,6 @@ async function buildMagazine() {
 
   // 뒷표지
   mag.innerHTML += buildBackCover(data);
-
-  // 이북5도 FAQ 페이지
-  mag.innerHTML += buildFAQPage();
 
   // 16개시군 마무리 페이지
   mag.innerHTML += buildCitiesPage();
