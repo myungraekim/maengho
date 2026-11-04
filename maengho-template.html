@@ -942,6 +942,13 @@ function buildUpcomingPage(d, pageNum) {
   // upcomingItems 객체로 변환
   const upcomingList = upcoming || [];
 
+  // 예정사항 포스터 (upcomingItems 항목에 poster 경로가 있을 때만 표시)
+  const upcomingPosters = d.upcomingItems
+    .filter(item => item && item.poster)
+    .map(item => `<figure class="upcoming-poster" style="margin:8px 0 0 0;text-align:center;">
+      <img src="${item.poster}" alt="${item.title}" style="max-width:100%;max-height:260px;object-fit:contain;">
+    </figure>`).join('');
+
   return `<div class="page content-page">
     <div class="page-header">
       <div style="display:flex;align-items:center;gap:10px;">
@@ -954,6 +961,7 @@ function buildUpcomingPage(d, pageNum) {
     <div class="upcoming-section">
       <h3>${monthKorean} 주요 예정사항</h3>
       <ul class="upcoming-list">${upcomingList}</ul>
+      ${upcomingPosters}
     </div>
 
     <div class="notice-box">
