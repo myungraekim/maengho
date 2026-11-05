@@ -107,7 +107,8 @@
       "gallery": [
         "photos/2026-11/gallery/g02_정부포상_3.jpg",
         "photos/2026-11/gallery/g03_박영철.jpg"
-      ]
+      ],
+      "galleryAspect": "3 / 2"
     },
     {
       "id": 9,
@@ -137,7 +138,8 @@
         "photos/2026-11/gallery/mayor_06.jpg",
         "photos/2026-11/gallery/mayor_07.jpg",
         "photos/2026-11/gallery/mayor_08.jpg"
-      ]
+      ],
+      "galleryAspect": "auto"
     },
     {
       "id": 11,

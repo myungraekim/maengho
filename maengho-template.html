@@ -1030,7 +1030,13 @@ function buildActivityGalleryPages(d) {
         pages.push(`<div class="page gallery-page" style="padding:14px;">
       <div style="font-size:13px;font-weight:700;margin:0 0 8px 0;color:var(--navy);">📷 ${a.title} (${a.date}) 현장${i > 0 || a.gallery.length > 4 ? ` (${Math.floor(i / 4) + 1})` : ''}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-        ${chunk.map(src => `<img src="${src}" alt="${a.title}" style="width:100%;height:auto;object-fit:cover;border:1px solid var(--border-light);">`).join('')}
+        ${chunk.map(src => {
+          // galleryAspect(예: "3 / 2")가 있으면 같은 비율로 맞추고 위쪽을 잘라냄 (좌우 높이 통일)
+          const fit = a.galleryAspect && a.galleryAspect !== 'auto'
+            ? `aspect-ratio:${a.galleryAspect};object-fit:cover;object-position:center bottom;`
+            : 'height:auto;';
+          return `<img src="${src}" alt="${a.title}" style="width:100%;${fit}border:1px solid var(--border-light);">`;
+        }).join('')}
       </div>
     </div>`);
       }
