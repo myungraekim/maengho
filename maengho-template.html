@@ -1018,6 +1018,18 @@ function buildSchedulePage(d, pageNum) {
   </div>`;
 }
 
+// ─── 행사 사진첩 페이지 (activities의 gallery 배열 기준, 행사별 한 페이지) ───
+function buildActivityGalleryPages(d) {
+  return d.activities
+    .filter(a => Array.isArray(a.gallery) && a.gallery.length)
+    .map(a => `<div class="page gallery-page" style="padding:14px;">
+      <div style="font-size:13px;font-weight:700;margin:0 0 8px 0;color:var(--navy);">📷 ${a.title} (${a.date}) 현장</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+        ${a.gallery.map(src => `<img src="${src}" alt="${a.title}" style="width:100%;height:auto;object-fit:cover;border:1px solid var(--border-light);">`).join('')}
+      </div>
+    </div>`).join('');
+}
+
 // ─── 예정사항 포스터 전면 페이지 (upcomingItems의 poster 경로 기준) ───
 function buildPosterPages(d) {
   return d.upcomingItems
@@ -1124,6 +1136,9 @@ async function buildMagazine() {
   if (m.issueMonth === 8) {
     mag.innerHTML += await buildGalleryPage(m);
   }
+
+  // 행사 사진첩 페이지 (발간정보 앞)
+  mag.innerHTML += buildActivityGalleryPages(data);
 
   // 예정사항 포스터 전면 페이지 (발간정보 앞)
   mag.innerHTML += buildPosterPages(data);
