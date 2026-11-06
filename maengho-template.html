@@ -1025,10 +1025,12 @@ function buildActivityGalleryPages(d) {
   d.activities
     .filter(a => Array.isArray(a.gallery) && a.gallery.length)
     .forEach(a => {
-      for (let i = 0; i < a.gallery.length; i += 4) {
-        const chunk = a.gallery.slice(i, i + 4);
+      const per = a.galleryPerPage || 4; // 기본 4장, 행사별로 galleryPerPage로 지정 가능
+      const totalPages = Math.ceil(a.gallery.length / per);
+      for (let i = 0; i < a.gallery.length; i += per) {
+        const chunk = a.gallery.slice(i, i + per);
         pages.push(`<div class="page gallery-page" style="padding:14px;">
-      <div style="font-size:13px;font-weight:700;margin:0 0 8px 0;color:var(--navy);">📷 ${a.title} (${a.date}) 현장${i > 0 || a.gallery.length > 4 ? ` (${Math.floor(i / 4) + 1})` : ''}</div>
+      <div style="font-size:13px;font-weight:700;margin:0 0 8px 0;color:var(--navy);">📷 ${a.title} (${a.date}) 현장${totalPages > 1 ? ` (${Math.floor(i / per) + 1})` : ''}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
         ${chunk.map(src => {
           // galleryAspect(예: "3 / 2")가 있으면 같은 비율로 맞추고 위쪽을 잘라냄 (좌우 높이 통일)

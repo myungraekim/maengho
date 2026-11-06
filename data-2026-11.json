@@ -148,7 +148,8 @@
         "photos/2026-11/gallery/mayor_07.jpg",
         "photos/2026-11/gallery/mayor_08.jpg"
       ],
-      "galleryAspect": "auto"
+      "galleryAspect": "auto",
+      "galleryPerPage": 6
     },
     {
       "id": 12,
@@ -190,6 +191,12 @@
       "priority": 5,
       "highlight": true,
       "poster": "photos/2026-11/poster_한마음등반대회.jpg"
+    },
+    {
+      "title": "행정자문위원 회의",
+      "date": "11. 19",
+      "priority": 4,
+      "highlight": false
     },
     {
       "title": "제23대 명예시장·군수 위촉식 및 워크숍",
